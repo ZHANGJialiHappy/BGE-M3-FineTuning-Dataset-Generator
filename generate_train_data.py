@@ -6,6 +6,7 @@ import jsonlines
 from psycopg2 import sql
 from dotenv import load_dotenv
 import os
+import re
 
 # Load environment variables from .env file
 load_dotenv()
@@ -25,8 +26,15 @@ connection_params = {
     'port': port,
 }
 
-query = """
-SELECT embedding
+query_pos_embedding = """
+SELECT embedding_sparse
+FROM v9__chatbot_documents
+WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
+LIMIT 1
+"""
+
+query_pos_embedding_sparse = """
+SELECT embedding_sparse
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 LIMIT 1
@@ -54,9 +62,9 @@ def execute_query(query, single_item = False):
             conn.close()
     return response
 
-def get_furthest_embedding(embedding_string, furthest_n=5):
-    query = """
-    SELECT embedding, embedding_text
+def get_furthest_embedding(embedding_string, embedding_field='embedding', furthest_n=5):
+    query = f"""
+    SELECT {embedding_field}, embedding_text
     FROM v9__chatbot_documents
     WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
     LIMIT 50
@@ -78,6 +86,42 @@ def get_furthest_embedding(embedding_string, furthest_n=5):
         
         # Calculate the Euclidean distance between the input embedding and the current embedding
         distance = np.linalg.norm(input_embedding - current_embedding)
+        
+        distances.append((distance, current_embedding_text))
+    
+    # Sort the distances in descending order and get the top N
+    distances.sort(reverse=True, key=lambda x: x[0])
+    furthest_embeddings_texts = [text for _, text in distances[:furthest_n]]
+    
+    return furthest_embeddings_texts
+
+def get_furthest_embedding_sparse(embedding_sparse_string, embedding_field='embedding_sparse', furthest_n=5):
+    query = f"""
+    SELECT {embedding_field}, embedding_text
+    FROM v9__chatbot_documents
+    WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
+    LIMIT 50
+    """
+    
+    data = execute_query(query)
+    
+    if not data:
+        return None
+    
+    distances = []
+
+    embedding_sparse = re.sub(r'/\d+$', '', embedding_sparse_string)
+    embedding_sparse_json_string = re.sub(r'(\d+):', r'"\1":', embedding_sparse)
+    input_embedding_json = json.loads(embedding_sparse_json_string)
+    
+    for row in data:
+        current_embedding_sparse = re.sub(r'/\d+$', '', row[0])
+        current_embedding_sparse_json_string = re.sub(r'(\d+):', r'"\1":', current_embedding_sparse)
+        current_embedding_json = json.loads(current_embedding_sparse_json_string)
+        current_embedding_text = row[1]
+        
+        # Calculate the Euclidean distance between the input sparse embedding and the current sparse embedding
+        distance = np.sqrt(sum((input_embedding_json.get(k, 0) - current_embedding_json.get(k, 0)) ** 2 for k in set(input_embedding_json) | set(current_embedding_json)))
         
         distances.append((distance, current_embedding_text))
     
@@ -122,15 +166,18 @@ def get_random_embeddings(embedding_string, random_n=5):
 #             })
 
 if __name__ == "__main__":
-    result = execute_query(query, single_item=True)
+    result = execute_query(query_pos_embedding_sparse, single_item=True)
     if result:
         embedding_string = result[0]
-        print(get_random_embeddings(embedding_string))
+        print(get_furthest_embedding_sparse(embedding_string, embedding_field='embedding_sparse', furthest_n=2))
     else:
         print("No data found")
 
+    # embedding_sparse=re.sub(r'/\d+$', '', result[0])
+    # embedding_sparse = re.sub(r'(\d+):', r'"\1":', embedding_sparse)
+    # print(json.loads(embedding_sparse))
+    # print(json.loads(re.sub(r'/\d+$', '', result[0])))
     # embedding_string = execute_query(query, single_item=True)[0]
-
     # print(f"Type of embedding_string: {type(embedding_string)}")
     
     # if isinstance(embedding_string, str):

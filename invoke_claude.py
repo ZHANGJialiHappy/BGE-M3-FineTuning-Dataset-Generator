@@ -39,7 +39,19 @@ def invoke_claude_3_with_text(prompt):
     # return output_list[0]["text"]
     return output_list[0]["text"] if output_list else {}
 
-def generate_jsonl_data(content):
+def generate_query(content):
+    prompt = f"""
+    Based on the provided content, generate a question related to this content.
+
+    Content:
+    {content}
+    """
+    # give an exmple
+    # convert html to chapter
+    
+    return invoke_claude_3_with_text(prompt)
+
+def generate_query(content):
     prompt = f"""
     Based on the provided content, generate a question related to this content.
     
@@ -58,5 +70,5 @@ if __name__ == "__main__":
 maximum temperature must be adhered to.\n\nCopyright © 2024 MAN Energy Solutions\n\n<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="../assets/img/MAN_pm_pos_rgb_300.png"/></a>\n\n\n* <a href="index.html">Home</a>\n* Language\n* <a href="../en-GB/7417799307.html">english</a>\n\n* <a href="index.html">Home</a>
     """
     
-    jsonl_data = generate_jsonl_data(guide_book_content)
-    print(jsonl_data)
+    query = generate_query(guide_book_content)
+    print(query)
