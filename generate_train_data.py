@@ -32,6 +32,8 @@ WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 LIMIT 1
 """
 
+# try
+
 def execute_query(query, single_item = False):
     response = None
     try:
