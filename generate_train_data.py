@@ -1,3 +1,4 @@
+from typing import Dict
 import psycopg2
 import numpy as np
 import json
@@ -121,7 +122,7 @@ def get_furthest_embedding_sparse(embedding_sparse_string, embedding_field='embe
         current_embedding_text = row[1]
         
         # Calculate the Euclidean distance between the input sparse embedding and the current sparse embedding
-        distance = np.sqrt(sum((input_embedding_json.get(k, 0) - current_embedding_json.get(k, 0)) ** 2 for k in set(input_embedding_json) | set(current_embedding_json)))
+        distance = np.sqrt(_compute_single_lexical_matching_score(input_embedding_json, current_embedding_json))
         
         distances.append((distance, current_embedding_text))
     
@@ -130,6 +131,13 @@ def get_furthest_embedding_sparse(embedding_sparse_string, embedding_field='embe
     furthest_embeddings_texts = [text for _, text in distances[:furthest_n]]
     
     return furthest_embeddings_texts
+
+def _compute_single_lexical_matching_score(lw1: Dict[str, float], lw2: Dict[str, float]):
+    scores = 0
+    for token, weight in lw1.items():
+        if token in lw2:
+            scores += weight * lw2[token]
+    return scores
 
 def get_random_embeddings(embedding_string, random_n=5):
     # Query to get all embeddings and their corresponding embedding_text
