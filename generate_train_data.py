@@ -28,6 +28,7 @@ connection_params = {
 query = """
 SELECT embedding
 FROM v9__chatbot_documents
+WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 LIMIT 1
 """
 
@@ -57,6 +58,7 @@ def get_furthest_embedding(embedding_string, furthest_n=5):
     query = """
     SELECT embedding, embedding_text
     FROM v9__chatbot_documents
+    WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
     LIMIT 50
     """
     
@@ -90,6 +92,8 @@ def get_random_embeddings(embedding_string, random_n=5):
     query = """
     SELECT embedding, embedding_text
     FROM v9__chatbot_documents
+    WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
+    LIMIT 50
     """
     
     data = execute_query(query)
@@ -121,7 +125,7 @@ if __name__ == "__main__":
     result = execute_query(query, single_item=True)
     if result:
         embedding_string = result[0]
-        print(get_furthest_embedding(embedding_string))
+        print(get_random_embeddings(embedding_string))
     else:
         print("No data found")
 
