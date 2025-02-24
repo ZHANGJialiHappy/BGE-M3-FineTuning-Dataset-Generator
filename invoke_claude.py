@@ -1,6 +1,7 @@
 import boto3
 import json
 
+
 def invoke_claude_3_with_text(prompt):
 
     client = boto3.client(
@@ -51,16 +52,35 @@ def generate_query(content):
     
     return invoke_claude_3_with_text(prompt)
 
-def generate_query(content):
+def filter_data(data):
     prompt = f"""
-    Based on the provided content, generate a question related to this content.
+    I have a list of strings, some of which are garbage data. Please filter out the garbage data and return the cleaned list.
     
+    Example of provided data: ['str1', 'str2'].
     
-    Guide Book Content:
-    {content}
+    Example of garbage data:
+        '
+        <a href="index.html">9836048</a>
+        <a href="936084363.html">TCR16 0287-2</a>
+        <a href="936178443.html">Installation/maintenance instructions</a>
+        4. <a href="936193803.html">Installation and maintenance</a>
+        5. <a href="C2 0287 500.41-04.html">C2 0287 500.41-04</a>
+
+        ### 
+
+        Copyright © 2023 MAN Energy Solutions
+
+        <a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="../assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+        * <a href="index.html">Home</a>
+        * Language
+        * <a href="4336454283.html">english</a>
+        * <a href="index.html">Home</a>
+        '
+    
+    Provided data:
+    {data}
     """
-    # give an exmple
-    # convert html to chapter
     
     return invoke_claude_3_with_text(prompt)
 
@@ -72,3 +92,6 @@ maximum temperature must be adhered to.\n\nCopyright © 2024 MAN Energy Solution
     
     query = generate_query(guide_book_content)
     print(query)
+
+
+

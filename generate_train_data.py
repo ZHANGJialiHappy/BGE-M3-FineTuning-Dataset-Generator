@@ -3,11 +3,14 @@ import psycopg2
 import numpy as np
 import json
 import random
-import jsonlines
-from psycopg2 import sql
+# import jsonlines
+# from psycopg2 import sql
 from dotenv import load_dotenv
 import os
 import re
+from typing import List
+from sklearn.metrics.pairwise import cosine_similarity
+import invoke_claude as ic
 
 # Load environment variables from .env file
 load_dotenv()
@@ -28,7 +31,7 @@ connection_params = {
 }
 
 query_pos_embedding = """
-SELECT embedding_sparse
+SELECT embedding
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 LIMIT 1
@@ -63,12 +66,50 @@ def execute_query(query, single_item = False):
             conn.close()
     return response
 
-def get_furthest_embedding(embedding_string, embedding_field='embedding', furthest_n=5):
+def get_furthest_embeddings_cosine(embedding_string: str, embedding_field: str = 'embedding', furthest_n: int = 5) -> List[str]:
     query = f"""
     SELECT {embedding_field}, embedding_text
     FROM v9__chatbot_documents
     WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
-    LIMIT 50
+    LIMIT 5
+    """
+    # data=execute_query(query)
+    data = ic.filter_data(execute_query(query))
+    
+    if not data:
+        return None
+    
+    distances = []
+    
+    # Convert the input embedding to a numpy array
+    input_embedding = np.array(json.loads(embedding_string), dtype=np.float64).reshape(1, -1)
+    
+    for row in data:
+        current_embedding = np.array(json.loads(row[0]), dtype=np.float64).reshape(1, -1)
+        current_embedding_text = row[1]
+        
+        # Calculate the cosine similarity between the input embedding and the current embedding
+        similarity = cosine_similarity(input_embedding, current_embedding)[0][0]
+        
+        # Convert similarity to distance (1 - similarity)
+        distance = 1 - similarity
+        
+        distances.append((distance, current_embedding_text))
+    
+    # Sort the distances in descending order and get the top N
+    distances.sort(reverse=True, key=lambda x: x[0])
+
+    furthest_embeddings_texts = [text for _, text in distances[:furthest_n]]
+    furthest_embeddings_distance = [distance for distance, _ in distances[:furthest_n]]
+    print(furthest_embeddings_distance)
+    
+    return furthest_embeddings_texts
+
+def get_furthest_embeddings_uclidean(embedding_string, embedding_field='embedding', furthest_n=5):
+    query = f"""
+    SELECT {embedding_field}, embedding_text
+    FROM v9__chatbot_documents
+    WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
     """
     
     data = execute_query(query)
@@ -93,10 +134,11 @@ def get_furthest_embedding(embedding_string, embedding_field='embedding', furthe
     # Sort the distances in descending order and get the top N
     distances.sort(reverse=True, key=lambda x: x[0])
     furthest_embeddings_texts = [text for _, text in distances[:furthest_n]]
-    
+    furthest_embeddings_distance = [distance for distance, _ in distances[:furthest_n]]
+    print(furthest_embeddings_distance)
     return furthest_embeddings_texts
 
-def get_furthest_embedding_sparse(embedding_sparse_string, embedding_field='embedding_sparse', furthest_n=5):
+def get_furthest_embeddings_sparse(embedding_sparse_string, embedding_field='embedding_sparse', furthest_n=5):
     query = f"""
     SELECT {embedding_field}, embedding_text
     FROM v9__chatbot_documents
@@ -174,23 +216,30 @@ def get_random_embeddings(embedding_string, random_n=5):
 #             })
 
 if __name__ == "__main__":
-    result = execute_query(query_pos_embedding_sparse, single_item=True)
+    result = execute_query(query_pos_embedding, single_item=True)
     if result:
         embedding_string = result[0]
-        print(get_furthest_embedding_sparse(embedding_string, embedding_field='embedding_sparse', furthest_n=2))
+        print(get_furthest_embeddings_cosine(embedding_string, embedding_field='embedding', furthest_n=1))
     else:
         print("No data found")
+
+    # print(execute_query(query_pos_embedding, single_item=True))
 
     # embedding_sparse=re.sub(r'/\d+$', '', result[0])
     # embedding_sparse = re.sub(r'(\d+):', r'"\1":', embedding_sparse)
     # print(json.loads(embedding_sparse))
     # print(json.loads(re.sub(r'/\d+$', '', result[0])))
-    # embedding_string = execute_query(query, single_item=True)[0]
+    
+    # embedding_string = execute_query(query_pos_embedding, single_item=True)[0]
     # print(f"Type of embedding_string: {type(embedding_string)}")
     
-    # if isinstance(embedding_string, str):
+        
+    # if isinstance(embedding_string, str) and embedding_string.strip():
     #     try:
-    #         # 尝试将字符串转换为 JSON 对象，然后转换为 NumPy 数组
+    #         # Decode the string using 'utf-8-sig' to handle the BOM
+    #         embedding_string = embedding_string.encode('utf-8').decode('utf-8-sig')
+
+    #         # Convert the string to a JSON object, then to a NumPy array
     #         embedding_array = np.array(json.loads(embedding_string), dtype=np.float64)
     #         print("Successfully converted embedding_string to numpy array.")
     #     except json.JSONDecodeError as e:
@@ -198,7 +247,7 @@ if __name__ == "__main__":
     #     except ValueError as e:
     #         print(f"Error converting to numpy array: {e}")
     # else:
-    #     print("embedding_string is not a string.")
+    #     print("embedding_string is not a valid JSON string or is empty.")
 
     # print(type(execute_query(query, single_item=True)[0]))
 
