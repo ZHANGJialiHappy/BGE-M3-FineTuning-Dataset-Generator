@@ -1,0 +1,96 @@
+Conclution: 
+1. there are almost 139 gabage data.
+2. Gabage data are most of time not furthest. Can be in the middle
+3. Dense performance is better. Better to use Dense to clean the data
+
+For Dense:
+3. Normally have 1 
+4. most of wrong answers begin from 7
+
+
+Dense: 
+question: gabage data 
+Right answer nr.: nr. 3 in database, 
+Hard neg nr:
+Wrong answer nr. begin: 99
+Conclution: there are almost 99 gabage data.
+
+question: What is the item designation for position number 190? (gabage?)
+Right answer nr.: nr. 3 in database, 
+Hard neg nr:
+Wrong answer nr. begin: 2
+
+question: What are the main components of the manual and what information does each section contain?
+Right answer nr.: nr. 4 in database, 
+Right answer nr.: 1-5
+Hard neg nr: 6
+Wrong answer nr. begin: 7
+Gabage data are not furthest
+
+question: What type of pump is used for lubricating oil in this engine system?
+Right answer nr.: nr. 5 in database, 
+Right answer nr.: 1-4
+Hard neg nr: 5
+Wrong answer nr. begin: 7
+
+question: What are some examples of hardwired interfaces used in power management systems?
+Right answer nr.: nr. 6 in database, 
+Right answer nr.: 1-4
+Hard neg nr: 5
+Wrong answer nr. begin: 7
+
+question: What are some examples of hardwired interfaces used in power management systems?
+Right answer nr.: nr. 6 in database, 
+Right answer nr.: 1-4
+Hard neg nr: 5
+Wrong answer nr. begin: 7
+
+question: What is the title or identifier shown at the top of the content?
+Right answer nr.: nr. 6 in database, 
+Right answer nr.: 1-4
+Hard neg nr: 5
+Wrong answer nr. begin: 7
+
+question: What is the correct procedure for mounting the guide bearing shells?
+Right answer nr.: nr. 10 in database, 
+Right answer nr.: 1
+Hard neg nr: 
+Wrong answer nr. begin: 2
+
+question: What conditions should be met before starting the cleaning process for the turbocharger system?
+Right answer nr.: nr. 14 in database, 
+Right answer nr.: 1-20
+Hard neg nr: 
+Wrong answer nr. begin: 21
+
+question: What is the maximum acceptable ovalness for a connecting rod to be reusable?
+Right answer nr.: nr. 29 in database, 
+Right answer nr.: 1-3
+Hard neg nr: 4
+Wrong answer nr. begin: 5
+
+question: What is the purpose of circulating cooling water and cooling oil through the engine during scavenge port inspection?
+Right answer nr.: nr. 79 in database, 
+Right answer nr.: 0
+Hard neg nr: 1
+Wrong answer nr. begin: 2
+
+
+wrong answer: 2, 7,7,7,7,7,2,21,5,2
+
+
+Sparse:
+question: What are the main sections covered in the maintenance and operation content provided?
+Right answer nr.: nr. 79 in database, 
+Right answer nr.: 0
+Hard neg nr: 1
+Wrong answer nr. begin: 2
+
+question: How is an entry removed from the Manual cut-out List?
+Right answer nr.: nr. 79 in database, 
+Right answer nr.: 0
+Hard neg nr: 1
+Wrong answer nr. begin: 2
+
+how do i troubleshoot
+what causes this alarm
