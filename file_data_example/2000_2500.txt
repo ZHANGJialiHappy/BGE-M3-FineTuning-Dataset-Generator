@@ -1,0 +1,148 @@
+******************************************
+
+Oil System Cleanliness
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74672858251.html"><p>Lubricating Oil System</p></a>
+4. <a href="74672865547.html"><p>Description</p></a>
+5. <a href="3045-0130-0005.html">3045-0130-0005</a>
+6. Oil System Cleanliness
+
+### Oil System Cleanliness
+
+In a new oil system, as well as in a system which has been drained owing to repair or oil change, the utmost care must be taken to avoid the ingress and presence of abrasive particles, because filters and centrifuges will only remove these slowly, and some are therefore bound to find their way into bearings etc.
+
+For this reason - prior to filling-up the system - careful cleaning of pipes, coolers and storage tank is strongly recommended.
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/7208297099.html">english</a>
+
+* <a href="index.html">Home</a>
+0.2884978440017991
+*********************
+
+Remarks
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71005426827.html">Trouble Tracing</a>
+4. <a href="71005431051.html">Description</a>
+5. <a href="D50303-08.html">D50303-08</a>
+6. Remarks
+
+### Remarks
+0.28855531987500393
+*********************
+
+Main Bearing, Thick Shell Design
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74672832651.html"><p>Bearings</p></a>
+4. <a href="74672843019.html"><p>Drawing</p></a>
+5. 2555-0100-0003
+
+###
+
+|  |
+| --- |
+| ![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/3543188747__Web.jpg) |
+
+Engine types with thick shell main bearing assemblies:
+
+S/K/L50ME/MC
+
+S/K/L60ME/MC
+
+S/L70ME/MC
+
+L80ME/MC
+
+K/L90ME/MC
+
+
+
+* 2555-0100-0003
+* 2018-09-14 - en
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/7186338827.html">english</a>
+
+* <a href="index.html">Home</a>
+0.28864333309533297
+*********************
+
+Operational lubrication
+
+1. <a href="index.html">9836048</a>
+2. <a href="936084363.html">TCR16 0287-2</a>
+3. <a href="936114443.html">Description</a>
+4. <a href="C1 0288 4.2-04.html">C1 0288 4.2-04</a>
+5. Operational lubrication
+
+### Operational lubrication
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/notice.svg)CAUTION
+
+Lube oil pressure!
+
+Inadequate lube oil pressure will cause bearing damage.
+
+* The lube oil pressure must be set by the engine manufacturer prior to initial start-up.
+
+* The lube oil pressure must be checked and/or monitored via the measuring connection (7, 8) at the top of the bearing casing.
+
+NOTICE
+
+Differences in height between the indicating instrument and the turbocharger centreline are to be taken into account with ± 0.1 bar per 1 m height difference (indicator installed higher – lower pressure; indicator installed lower – higher pressure).
+
+Copyright © 2023 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="17710066443.html">english</a>
+
+* <a href="index.html">Home</a>
+0.28874775648911566
+*********************
+|  |  |
+| --- | --- |
+| Action | Results | | |
+| Total height on roller guide | Distance "x" | Injection timing | Max combustion pressure |
+| Increased ↑ | Reduced ↓ | Advanced ↑ | Increased ↑ |
+| Reduced ↓ | Increased ↑ | Delayed ↓ | Reduced ↓ |
+
+
+
+* L23/30DF;L23/30S;L23/30H, 2017.05.16
+* 507-01.20 Edition 16
+* 2017-05-16 - en
+
+Copyright © 2023 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="7615737483.html">english</a>
+
+* <a href="index.html">Home</a>
+0.2887880774349314
+*********************

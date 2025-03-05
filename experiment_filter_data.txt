@@ -1,5 +1,5 @@
 Conclution: 
-1. there are almost 139 gabage data.
+1. there are almost 2500 gabage data.
 2. Gabage data are most of time not furthest. Can be in the middle
 3. Dense performance is better. Better to use Dense to clean the data
 

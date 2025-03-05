@@ -73,14 +73,12 @@ def rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data):
         
         # Convert similarity to distance (1 - similarity)
         distance = 1 - similarity
+
+        distances.append((row[0],row[1],row[2],distance))
+
+    distances.sort(key=lambda x: x[3])
         
-        distances.append((distance, row))
-    
-    distances.sort(key=lambda x: x[0])
-    for d, _ in distances[:5]:
-        print(d)
-    ranked_data = [row for _, row in distances]
-    return ranked_data
+    return distances
 
 def rank_embeddings_by_dot_product_with_texts(embedding_sparse, data):
     distances = []
@@ -95,15 +93,14 @@ def rank_embeddings_by_dot_product_with_texts(embedding_sparse, data):
         current_embedding_json = json.loads(current_embedding_sparse_json_string)
 
         distance = np.sqrt(_compute_single_lexical_matching_score(input_embedding_sparse__json, current_embedding_json))
-        
-        distances.append((distance, row))
-    
-    distances.sort(reverse=True, key=lambda x: x[0])
-    for d, _ in distances[:5]:
-        print(d)
-        print('*********************')
-    ranked_data = [row for _, row in distances]
-    return ranked_data
+
+        distances.append((row[0],row[1],row[2],distance))
+                
+        # distances.append((distance, row))
+
+    distances.sort(reverse=True, key=lambda x: x[3])
+
+    return distances
 
 def _compute_single_lexical_matching_score(lw1: Dict[str, float], lw2: Dict[str, float]):
     scores = 0
@@ -117,4 +114,17 @@ def get_clean_data():
 
     embedding_in_json_string = execute_query(query_one_gabagy_by_embedding, single_item=True)[0]
 
-    return rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data)[139:]
+    ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data)
+
+    clean_data = ranked_data[2500:]
+
+    return clean_data
+
+# if __name__ == "__main__":
+#     clean_data = get_clean_data()
+#     print("******************************************")
+
+#     for _, _, embedding_text, distance in clean_data:
+#         print(embedding_text)
+#         print(distance)
+#         print('*********************')

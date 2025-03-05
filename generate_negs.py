@@ -3,61 +3,104 @@ import json
 import random
 from typing import List
 from queries import get_query_pos_embedding_nth, get_query_pos_embedding_sparse_nth, query_data_by_embedding, query_data_by_embedding_sparse, query_one_gabagy_by_embedding,query_one_gabagy_by_embedding_sparse
-# from invoke_claude import filter_data
 from data_utils import execute_query, fetch_random_data, get_clean_data, rank_embeddings_by_cosine_with_texts, rank_embeddings_by_dot_product_with_texts
+import time
 
-def get_closest_embeddings_text_by_cosine(embedding_in_json_string: str,  closest_n: int = 15) -> List[str]:
-    clean_data = get_clean_data()
+def get_random_closest_embeddings_text_by_cosine(embedding_in_json_string: str, clean_data, closest_n: int = 15) -> List[str]:
+    # clean_data = get_clean_data()
+    
+    # start_time = time.time()
+    random_200_data=random.sample(clean_data, 200)
+    ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, random_200_data)
+    closest_embeddings_texts = [text for _, _, text, _ in ranked_data[10:closest_n+10]]
+    print("generate_random_closest_train_data")
+    for _, _, _, distance in ranked_data[10:closest_n+10]:
+        print(distance)
+    print('******************************************************')
+    # end_time = time.time()
+    # print(f"Time taken: {end_time - start_time} seconds")
+
+    return closest_embeddings_texts
+
+def get_hard_neg_embeddings_text_by_cosine(embedding_in_json_string: str,  clean_data, closest_n: int = 15) -> List[str]:
+    # clean_data = get_clean_data()
+    
+    # start_time = time.time()
+    ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
+    closest_embeddings_texts = [text for _, _, text, _  in ranked_data[10:closest_n+10]]
+    print("generate_hard_neg_train_data")
+    for _, _, _, distance in ranked_data[10:closest_n+10]:
+        print(distance)
+    print('******************************************************')
+    
+    # end_time = time.time()
+    # print(f"Time taken: {end_time - start_time} seconds")
+
+    return closest_embeddings_texts
+
+def get_random_embeddings_text_by_cosine(embedding_in_json_string: str, clean_data, random_n: int = 15 ) -> List[str]:
+    # clean_data=get_clean_data()
+
+    # start_time = time.time()
     
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
 
-    closest_embeddings_texts = [text for _, _, text in ranked_data[10:closest_n+10]]
+    intercepted_data= ranked_data[10:]
 
+    random_data=random.sample(intercepted_data, random_n)
+
+    random_embeddings_texts = [text for _, _, text, _ in random_data]
+
+    print("generate_random_embeddings_train_data")
+    for _, _, _, distance in random_data:
+        print(distance)
+    print('******************************************************')
+
+    # end_time = time.time()
+    # print(f"Time taken: {end_time - start_time} seconds")
+
+    return random_embeddings_texts
+
+
+def get_random_closest_embeddings_sparse_text(embedding_sparse_string, clean_data, closest_n=15):
+    # clean_data = get_clean_data()
+
+    # start_time = time.time()
+
+    random_200_data=random.sample(clean_data, 200)
+    
+    ranked_data = rank_embeddings_by_dot_product_with_texts(embedding_sparse_string, random_200_data)
+
+    closest_embeddings_texts = [text for _, _, text, _  in ranked_data[10:closest_n+10]]
+
+    print("generate_random_closest_embeddings_sparse_train_data")
+    for _, _, _, distance in ranked_data[10:closest_n+10]:
+        print(distance)
+    print('******************************************************')
+    # end_time = time.time()
+    # print(f"Time taken: {end_time - start_time} seconds")
     return closest_embeddings_texts
 
 
-def get_random_embeddings_text_by_cosine(embedding_in_json_string: str,  random_n: int = 15 ) -> List[str]:
-    clean_data=get_clean_data()
-    
-    ranked_distances = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
-
-    intercepted_distances = ranked_distances[10:210]
-
-    random_data=random.sample(intercepted_distances, random_n)
-    print(len(random_data))
-
-    return random_data
-
-
-def get_closest_embeddings_sparse_text(embedding_sparse_string, closest_n=5):
-    clean_data = get_clean_data()
-    
-    ranked_data = rank_embeddings_by_dot_product_with_texts(embedding_sparse_string, clean_data)
-
-    closest_embeddings_texts = [text for _, _, text in ranked_data[10:closest_n+10]]
-
-    return closest_embeddings_texts
-
-
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # result = execute_query(get_query_pos_embedding_nth(1), single_item=True)
     # if result:
     #     embedding_json_string = result[0]
-    #     get_closest_embeddings_text_by_cosine(embedding_json_string)
+    #     get_random_closest_embeddings_text_by_cosine(embedding_json_string)
     # else:
     #     print("No data found")
 
-    result = execute_query(get_query_pos_embedding_nth(1), single_item=True)
-    if result:
-        embedding_json_string = result[0]
-        get_random_embeddings_text_by_cosine(embedding_json_string)
-    else:
-        print("No data found")
+    # result = execute_query(get_query_pos_embedding_nth(1), single_item=True)
+    # if result:
+    #     embedding_json_string = result[0]
+    #     get_hard_neg_embeddings_text_by_cosine(embedding_json_string)
+    # else:
+    #     print("No data found")
 
     # result = execute_query(get_query_pos_embedding_sparse_nth(1), single_item=True)
     # if result:
     #     embedding_sparse = result[0]
-    #     get_closest_embeddings_sparse_text(embedding_sparse)
+    #     get_random_closest_embeddings_sparse_text(embedding_sparse)
     # else:
     #     print("No data found")
     

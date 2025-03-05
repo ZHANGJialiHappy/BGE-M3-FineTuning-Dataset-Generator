@@ -1,0 +1,628 @@
+Damage to the coolant system
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71005469579.html">Specification and Treatment, Lubricating Oil, Fuel Oil and Cooling Water</a>
+4. <a href="71005476235.html">Description</a>
+5. <a href="D010.000.023-13-0001.html">D010.000.023-13-0001</a>
+6. Damage to the coolant system
+
+### Damage to the coolant system
+
+Corrosion
+
+Corrosion is an electrochemical process that can widely be avoided by selecting the correct water quality and by carefully handling the water in the engine cooling system.
+
+Flow cavitation
+
+Flow cavitation can occur in areas in which high flow velocities and high turbulence is present. If the steam pressure is reached, steam bubbles form and subsequently collapse in high pressure zones which causes the destruction of materials in constricted areas.
+
+Erosion
+
+Erosion is a mechanical process accompanied by material abrasion and the destruction of protective films by solids that have been drawn in, particularly in areas with high flow velocities or strong turbulence.
+
+Stress corrosion cracking
+
+Stress corrosion cracking is a failure mechanism that occurs as a result of simultaneous dynamic and corrosive stress. This may lead to cracking and rapid crack propagation in water-cooled, mechanically-loaded components if the coolant has not been treated correctly.
+
+Copyright © 2023 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="43240203.html">english</a>
+
+* <a href="index.html">Home</a>
+0.32702133363932373
+*********************
+
+ELFI
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74672925835.html"><p>Hydraulics</p></a>
+4. <a href="74672928523.html"><p>Preface Chapter</p></a>
+5. <a href="4540-0100-0002.html">4540-0100-0002</a>
+6. <a href="7304978059.html"><p>Hydraulic Cylinder Unit</p></a>
+7. ELFI
+
+### ELFI
+
+The Electronic Fuel Injection control valve (ELFI valve) will control the supply of hydraulic oil to the fuel oil pressure booster. The ELFI consists of 3 main elements :
+
+* A housing containing the main valve slide.
+* A pilot valve supplying hydraulic oil for controlling the position of the main valve slide.
+* A Feed-back sensor reporting the position of the main valve slide back to the ECS.
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/32276061323.html">english</a>
+
+* <a href="index.html">Home</a>
+0.3041582064274657
+*********************
+
+Lubricating oil cooler
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71006214155.html">Lubricating Oil System</a>
+4. <a href="71006284427.html">Work cards</a>
+5. M5150600-02
+
+Safety precautions
+------------------
+
+|  |  |
+| --- | --- |
+|  | Shut-off starting air |
+|  | Stop lub. oil circulation |
+|  | Engine stopped |
+|  | Shut off cooling water |
+
+Short Description
+-----------------
+
+Separation, cleaning and assembling.
+Replacement of plates and gaskets.
+
+Starting Position
+-----------------
+
+Cooling water and lube oil have been drained from cooler/engine. All external pipes are disconnected.
+
+Related Procedure
+-----------------
+
+
+
+Manpower
+--------
+
+| Number | Qualification | Duration in h |
+| --- | --- | --- |
+| 1 |  | 4 |
+
+Data
+----
+
+| Ref. | Description | Value | Unit |
+| --- | --- | --- | --- |
+| Data for pressure and tolerance | (Page 500.35) |  |  |
+| Data for tightening torque | (Page 500.40) |  |  |
+| Declaration of weight | (Page 500.45) |  |  |
+
+Special tools
+-------------
+
+| Reference | Item No. | Description |
+| --- | --- | --- |
+|  |  |  |
+
+### Hand Tools
+
+| Combination spanner, 10 mm |
+| Combination spanner, 55 mm |
+| Combination spanner, 30 mm |
+| Adjustable spanner |
+
+Replacement and wearing parts
+-----------------------------
+
+| Reference | Item No. | Description | Quantity |
+| --- | --- | --- | --- |
+| - |  |  | - |
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/18014405623500683__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007206368839819__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007206368756363__Web.jpg)
+
+### Warning
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/notice.svg)WARNING
+
+Never tighten / untighten bolts or nuts on a pressurized plate cooler.
+
+Doing so may cause the bolts / nuts to fail due to overload.
+
+Damaged bolts / nuts must be replaced.
+
+### Introduction
+0.30219050119607105
+*********************
+| 329 | 4272-0500-0036-329 | Sealing ring | 2 |  |  |  |
+| 330 | 4272-0500-0036-330 | Sealing ring | 1 |  |  |  |
+| 342 | 4272-0500-0036-342 | Housing | 1 |  |  |  |
+| 354 | 4272-0500-0036-354 | Sealing ring | 1 |  |  |  |
+| 378 | 4272-0500-0036-378 | Spindle | 1 |  |  |  |
+| 391 | 4272-0500-0036-391 | Housing | 1 |  |  |  |
+| 401 | 4272-0500-0036-401 | Spring | 0 |  |  |  |
+| 413 | 4272-0500-0036-413 | Cone | 1 |  |  |  |
+| 425 | 4272-0500-0036-425 | Conical ring 2/2 | 1 |  |  |  |
+| 437 | 4272-0500-0036-437 | Suction valve, complete | 1 |  |  |  |
+|  |  |
+| --- | --- |
+| Notes | 1) Cam lock washers are to be supplied by MAN Energy Solutions only.  2) Please state manufacturer's name and part no. | | | | |
+0.3113107981204677
+*********************
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/17960943499__Web.jpg)
+
+9.
+
+Lifting the connecting rod out of the engine
+
+NOTICE For engines with chain drive and HPS in the middle - and with limited space for removal of the connecting rod closest to the chain drive - gallery, HPS, pipes, etc. must be removed, as required, to provide access for the engine room crane.
+
+Place a wire rope round the connecting rod, hook on the engine room crane and haul tight.
+
+Continue turning upwards till about 30° after TDC, while “following” with the tackles and the engine room crane.
+
+Lift the connecting rod out of the engine using the engine room crane and the tackles.
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/17960945419__Web.jpg)
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/17839532171.html">english</a>
+
+* <a href="index.html">Home</a>
+0.30900913185545653
+*********************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ranked：
+
+******************************************
+
+Damage to the coolant system
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71005469579.html">Specification and Treatment, Lubricating Oil, Fuel Oil and Cooling Water</a>
+4. <a href="71005476235.html">Description</a>
+5. <a href="D010.000.023-13-0001.html">D010.000.023-13-0001</a>
+6. Damage to the coolant system
+
+### Damage to the coolant system
+
+Corrosion
+
+Corrosion is an electrochemical process that can widely be avoided by selecting the correct water quality and by carefully handling the water in the engine cooling system.
+
+Flow cavitation
+
+Flow cavitation can occur in areas in which high flow velocities and high turbulence is present. If the steam pressure is reached, steam bubbles form and subsequently collapse in high pressure zones which causes the destruction of materials in constricted areas.
+
+Erosion
+
+Erosion is a mechanical process accompanied by material abrasion and the destruction of protective films by solids that have been drawn in, particularly in areas with high flow velocities or strong turbulence.
+
+Stress corrosion cracking
+
+Stress corrosion cracking is a failure mechanism that occurs as a result of simultaneous dynamic and corrosive stress. This may lead to cracking and rapid crack propagation in water-cooled, mechanically-loaded components if the coolant has not been treated correctly.
+
+Copyright © 2023 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="43240203.html">english</a>
+
+* <a href="index.html">Home</a>
+0.32702133363932373
+*********************
+
+ELFI
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74672925835.html"><p>Hydraulics</p></a>
+4. <a href="74672928523.html"><p>Preface Chapter</p></a>
+5. <a href="4540-0100-0002.html">4540-0100-0002</a>
+6. <a href="7304978059.html"><p>Hydraulic Cylinder Unit</p></a>
+7. ELFI
+
+### ELFI
+
+The Electronic Fuel Injection control valve (ELFI valve) will control the supply of hydraulic oil to the fuel oil pressure booster. The ELFI consists of 3 main elements :
+
+* A housing containing the main valve slide.
+* A pilot valve supplying hydraulic oil for controlling the position of the main valve slide.
+* A Feed-back sensor reporting the position of the main valve slide back to the ECS.
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/32276061323.html">english</a>
+
+* <a href="index.html">Home</a>
+0.3041582064274657
+*********************
+
+Lubricating oil cooler
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71006214155.html">Lubricating Oil System</a>
+4. <a href="71006284427.html">Work cards</a>
+5. M5150600-02
+
+Safety precautions
+------------------
+
+|  |  |
+| --- | --- |
+|  | Shut-off starting air |
+|  | Stop lub. oil circulation |
+|  | Engine stopped |
+|  | Shut off cooling water |
+
+Short Description
+-----------------
+
+Separation, cleaning and assembling.
+Replacement of plates and gaskets.
+
+Starting Position
+-----------------
+
+Cooling water and lube oil have been drained from cooler/engine. All external pipes are disconnected.
+
+Related Procedure
+-----------------
+
+
+
+Manpower
+--------
+
+| Number | Qualification | Duration in h |
+| --- | --- | --- |
+| 1 |  | 4 |
+
+Data
+----
+
+| Ref. | Description | Value | Unit |
+| --- | --- | --- | --- |
+| Data for pressure and tolerance | (Page 500.35) |  |  |
+| Data for tightening torque | (Page 500.40) |  |  |
+| Declaration of weight | (Page 500.45) |  |  |
+
+Special tools
+-------------
+
+| Reference | Item No. | Description |
+| --- | --- | --- |
+|  |  |  |
+
+### Hand Tools
+
+| Combination spanner, 10 mm |
+| Combination spanner, 55 mm |
+| Combination spanner, 30 mm |
+| Adjustable spanner |
+
+Replacement and wearing parts
+-----------------------------
+
+| Reference | Item No. | Description | Quantity |
+| --- | --- | --- | --- |
+| - |  |  | - |
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/18014405623500683__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007206368839819__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007206368756363__Web.jpg)
+
+### Warning
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/notice.svg)WARNING
+
+Never tighten / untighten bolts or nuts on a pressurized plate cooler.
+
+Doing so may cause the bolts / nuts to fail due to overload.
+
+Damaged bolts / nuts must be replaced.
+
+### Introduction
+0.30219050119607105
+*********************
+| 329 | 4272-0500-0036-329 | Sealing ring | 2 |  |  |  |
+| 330 | 4272-0500-0036-330 | Sealing ring | 1 |  |  |  |
+| 342 | 4272-0500-0036-342 | Housing | 1 |  |  |  |
+| 354 | 4272-0500-0036-354 | Sealing ring | 1 |  |  |  |
+| 378 | 4272-0500-0036-378 | Spindle | 1 |  |  |  |
+| 391 | 4272-0500-0036-391 | Housing | 1 |  |  |  |
+| 401 | 4272-0500-0036-401 | Spring | 0 |  |  |  |
+| 413 | 4272-0500-0036-413 | Cone | 1 |  |  |  |
+| 425 | 4272-0500-0036-425 | Conical ring 2/2 | 1 |  |  |  |
+| 437 | 4272-0500-0036-437 | Suction valve, complete | 1 |  |  |  |
+|  |  |
+| --- | --- |
+| Notes | 1) Cam lock washers are to be supplied by MAN Energy Solutions only.  2) Please state manufacturer's name and part no. | | | | |
+0.3113107981204677
+*********************
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/17960943499__Web.jpg)
+
+9.
+
+Lifting the connecting rod out of the engine
+
+NOTICE For engines with chain drive and HPS in the middle - and with limited space for removal of the connecting rod closest to the chain drive - gallery, HPS, pipes, etc. must be removed, as required, to provide access for the engine room crane.
+
+Place a wire rope round the connecting rod, hook on the engine room crane and haul tight.
+
+Continue turning upwards till about 30° after TDC, while “following” with the tackles and the engine room crane.
+
+Lift the connecting rod out of the engine using the engine room crane and the tackles.
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/17960945419__Web.jpg)
+
+Copyright © 2024 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="../en-GB/17839532171.html">english</a>
+
+* <a href="index.html">Home</a>
+0.30900913185545653
+*********************
+
+(venv) C:\Users\ETICJX\NLP Thesis\experiments\test-data-generation>python data_utils.py
+******************************************
+
+Service Procedure
+
+1. <a href="index.html">9836048</a>
+2. <a href="71005245963.html">L9836048</a>
+3. <a href="71006214155.html">Lubricating Oil System</a>
+4. <a href="71006284427.html">Work cards</a>
+5. <a href="M5150110-01.html">M5150110-01</a>
+6. Service Procedure
+
+### Service Procedure
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/notice.svg)WARNING
+
+Use protective gloves, safety glasses
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007203159867019__en__Web.jpg)
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| 1 | Left hand filter camber | 2 | Right hand filter chamber |
+| 3 | Inlet | 4 | Outlet |
+| 5 | Vent screw | 6 | Three-way valve/ switch valve |
+| 7 | Fill-up valve | 8 | Drain plug |
+
+Figure 2: Lubricating oil filter
+
+1. Turn the three-way valve, *see fig. 2*, into the position setting the stand-by filter chamber in ope­ra­tion and the filter chamber requiring service out of operation.
+2. Open the vent screw (5) on the top of the filter to get the pressure out of the filter half.
+3. Open the drain plug (8) under the filter housing and drain off oil.
+4. Filter housing cap is dismantled.
+5. Remove the inner safety element. Clean the element with detergent. Check that it is intact.
+6. Remove the outer element(s). Filter element is of disposable type. It change always to new original filter.
+7. Clean the filter housing and the cap. Be careful of not to let the oil from the dirty side to go into the clean oil channel in the middle of bottom.
+8. Check the seal on the bottom of the filter housing and in the cap. Change if needed.
+9. Assemble the filter in opposite order.
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007203159869835__en__Web.jpg)
+
+Figure 3: Fill-up valve position
+0.30120806309243586
+*********************
+
+Admin
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74673025291.html"><p>Operation</p></a>
+4. <a href="74673032587.html"><p>Description</p></a>
+5. 6645-0280-0007
+
+### Admin and Power Off
+
+The screens and button explained in the following are:
+
+1.1 Set Time
+
+1.2 Version (software and IMO Check Sum)
+
+1.3 Power Off
+
+### Set Time (See Drawing 6655-0205)
+
+At the Set Time screen, the operator is able to set the time/date for UTC (Chief Level required) or to set the time offset for Local Time in intervals down to 5 minutes (Operator Level).
+
+Pressing on either button “UTC Date/Time” or button “Local Date/Time” will display toolbars (shown on drawing 6655-0205). From these toolbars, Date and Time can be set.
+
+Pressing the buttons “UTC Time displayed” or “Local Time Displayed” enables the operator to choose between the time to be displayed at the MOP (upper right corner) and in the lists (alarm list, event log etc.)
+Alarms and logs are recorded with both Local Time/Date and UTC Time/Date regardless of which time/date is selected for displayed .
+
+NOTICE
+
+Always ensure a correct setting of UTC. The ECS has no connections to the ship`s master clock
+
+### Version (See Drawing 6655-0210)
+
+### Background
+
+This screen displays the version type of the Engine Control System (ECS) controlling the engine. It is used to obtain the configuration information of the ECS. It displays, in table format, all the controllers that comprise the system, including specific information related to each controller.
+
+### Screen Items
+
+In the upper system information line, general information of the ECS for this particular engine is shown. The fields are: (See drawing 6655-0210)
+0.3012315409612243
+*********************
+
+Version (See Drawing 6655-0210)
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74673025291.html"><p>Operation</p></a>
+4. <a href="74673032587.html"><p>Description</p></a>
+5. <a href="6645-0280-0007.html">6645-0280-0007</a>
+6. <a href="21852212491.html"><p>Admin and Power Off</p></a>
+7. Version (See Drawing 6655-0210)
+
+### Version (See Drawing 6655-0210)
+
+### Background
+
+This screen displays the version type of the Engine Control System (ECS) controlling the engine. It is used to obtain the configuration information of the ECS. It displays, in table format, all the controllers that comprise the system, including specific information related to each controller.
+
+### Screen Items
+
+In the upper system information line, general information of the ECS for this particular engine is shown. The fields are: (See drawing 6655-0210)
+
+|  |  |
+| --- | --- |
+| Product Name & Version | The name and version of the ECS software |
+| Engine Group No. | The Engine number of the engine builder |
+| IMO No. | Engine IMO number (former Lloyds number) |
+| Engine Builder | Name of engine builder |
+| Eng. No. | Engine Serial number |
+
+### Controller information
+
+In the controller information panel, data for each controller in the system is displayed. The pane contains the following:
+
+### Controller unit
+
+|  |  |
+| --- | --- |
+| ID | Name of multi-purpose controller |
+| Addr. | Network Address of multi-purpose controller |
+| Type | Application group the multi-purpose controller belongs to (ACU, CCU, CWCU, ECU, EICU, ETU or SCU) |
+
+### Parameters Check Sums
+
+The Parameter Check Sums are indications of the current parameter values in the ECS. They are used as a method for determining if parameters have been changed. Especially the IMO Design parameters must not be 
+changed compared to shop trial values, since they reflect emission and performance relevant parameters.
+0.3014369744501839
+*********************
+
+Thrust Bearing, Data
+
+1. <a href="index.html">Default title</a>
+2. <a href="74672654603.html"><p>4209287-9</p></a>
+3. <a href="74672832651.html"><p>Bearings</p></a>
+4. <a href="74672846091.html"><p>Work Card</p></a>
+5. 2565-0600-0019
+
+Safety Precautions
+------------------
+
+|  |  |
+| --- | --- |
+|  | Stop the Engine |
+|  | Shut off starting air supply - At starting air receiver |
+|  | Block the main starting valve |
+|  | Shut off starting air distributor/distributing system supply |
+|  | Shut off safety air supply - Not ME Engines |
+|  | Shut off control air supply |
+|  | Engage turning gear |
+|  | Stop lubricating oil supply |
+|  | Open indicator cocks |
+|  | Shut down hydraulic power supply |
+
+![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/7114787211__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/7115392139__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/7115402123__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/7115699851__Web.jpg)![](manual/58548175-ccef-4d6a-987c-f597b7d4d225/images/jpg/9007206369163659__Web.jpg)
+
+Data
+----
+
+| Ref. | Description | Value | Unit |
+| --- | --- | --- | --- |
+| T25-045 | End cover | 200 | kg |
+| T25-048 | Thrust bearing segment | 40 | kg |
+| T25-049 | Segment stopper | 30 | kg |
+| T76-001 | Hydraulic pressure, dismantling | 1400-1650 | bar |
+| T76-002 | Hydraulic pressure, mounting | 1500 | bar |
+
+Tools
+-----
+
+| Reference | Item No. | Description |
+| --- | --- | --- |
+| 2570-0010 | 104 | Tool for turning out segments |
+| 2570-0010 | 307 | Tool for turning out segments |
+| 2570-0020 | - | Segment stopper hydraulic tools |
+| 7670-0100 | 011 | Hydraulic pump, pneumatically operated |
+| 7670-0100 | 047 | Hose with unions, 1500 mm |
+| 7670-0100 | 059 | Hose with unions, 3000 mm |
+| 7670-0100 | 118 | 3-way distributor block, complete |
+| 7670-0200 | - | Torque spanners |
+| 7670-0300 | - | Lifting tools, etc. |
+| 7670-0410 | 054 | Feeler gauge set |
+0.3014379159149816
+*********************
+Slow passage of the lubricating oil through the separator unit is obtained by using a reduced flow rate and by operating the separator unit 24 hours a day, stopping only for maintenance, according to maker's recommendation.
+
+Copyright © 2023 MAN Energy Solutions
+
+<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png"/></a>
+
+
+* <a href="index.html">Home</a>
+* Language
+* <a href="4164023819.html">english</a>
+
+* <a href="index.html">Home</a>
+0.3016188647402528
+*********************

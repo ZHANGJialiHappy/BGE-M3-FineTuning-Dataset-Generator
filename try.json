@@ -1,0 +1,200 @@
+{
+  "query": "
+What are the three standards used to determine and assess the cold suitability of fuel?",
+  "pos": [
+    "\ufeff
+Cold suitability
+
+1. <a href=\"index.html\">9836048</a>
+2. <a href=\"71005245963.html\">L9836048</a>
+3. <a href=\"71005469579.html\">Specification and Treatment, Lubricating Oil, Fuel Oil and Cooling Water</a>
+4. <a href=\"71005476235.html\">Description</a>
+5. <a href=\"D010.000.023-04-0001.html\">D010.000.023-04-0001</a>
+6. Cold suitability
+
+### Cold suitability
+
+The cold suitability of the fuel is determined by the climatic requirements at the place of installation. It is the responsibility of the operating company to choose a fuel with sufficient cold suitability.
+
+The cold suitability of a fuel may be determined and assessed using the following standards:
+
+* Limit of filterability (CFPP) as per EN 116
+* Pour point as per ISO 3016
+* Cloud point as per EN 23015
+
+To be able to draw a reliable conclusion, it is recommended to perform all three stated procedures.
+
+Copyright \u00a9 2023 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"37243313547.html\">english</a>
+
+* <a href=\"index.html\">Home</a>"
+  ],
+  "neg": [
+    "\ufeff
+Reconditioning of Valve Seat Ring
+
+1. <a href=\"index.html\">9836048</a>
+2. <a href=\"71005245963.html\">L9836048</a>
+3. <a href=\"71005502347.html\">Cylinder Head</a>
+4. <a href=\"71005513995.html\">Work cards</a>
+5. <a href=\"M5050110-10.html\">M5050110-10</a>
+6. Reconditioning of Valve Seat Ring
+
+### Reconditioning of Valve Seat Ring
+
+Reconditioning of valve seat rings by machining is carried out by means of a grinding machine, the pilot spindle of which must be mounted in the valve spindle guide. For operation of the grinding machine, see separate instructions.
+
+Copyright \u00a9 2023 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"3799430923.html\">english</a>
+
+* <a href=\"index.html\">Home</a>",
+    "\ufeff
+Engine frame and base frame
+
+1. <a href=\"index.html\">9836048</a>
+2. <a href=\"71005245963.html\">L9836048</a>
+3. <a href=\"71005907723.html\">Engine Frame and Base Frame</a>
+4. <a href=\"71005911947.html\">Description</a>
+5. D51101-01
+
+### Frame
+
+The engine frame is attached to the top of the base frame by means of bolts. The cross girders of the frame are provided with bores for the main bearings in which the crankshaft is underslung, i.e. it is carried by the main bearing caps.
+
+The main bearing caps are attached by means of studs and nuts, which are loosened and tightened with the aid of hydraulic tools. After mounting, the main bearing caps are further secured by means of bracing screws, which are screwed horizontally into the sides of the caps and tightened against the sides of the engine frame. The main bearings are equipped with replaceable shells which are fitted without scraping.
+
+The crankshaft guide bearing is located at the flywheel end of the engine.
+
+On the sides of the frame there are covers for access to the camshaft, the charge air receiver and crankcase. Some of the covers are fitted with relief valves which will act, should oil vapours in the crankcase be ignited, for instance in the event of a hot bearing.
+
+### Base frame
+
+Engine and alternator (gear, pump) are mounted on a common base frame which is in welded design.
+
+The base frame is used as lubricating oil reservoir \"wet sump\".
+
+  
+
+* L23/30S;L23/30DF;L23/30H, 2014.06.24
+* 511.01 Edition 01
+* 2014-06-27 - en
+
+Copyright \u00a9 2023 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"10779940235.html\">english</a>
+
+* <a href=\"index.html\">Home</a>",
+    "\ufeff
+Chief Index Limit [%]
+
+1. <a href=\"index.html\">Default title</a>
+2. <a href=\"74672654603.html\"><p>4209287-9</p></a>
+3. <a href=\"74673025291.html\"><p>Operation</p></a>
+4. <a href=\"74673032587.html\"><p>Description</p></a>
+5. <a href=\"6645-0250-0012.html\">6645-0250-0012</a>
+6. <a href=\"17361826187.html\"><p>Engine</p></a>
+7. <a href=\"20089325707.html\"><p>Chief Limiters (See Drawing 6655-0162)</p></a>
+8. Chief Index Limit [%]
+
+### Chief Index Limit [%]
+
+When Chief Index Limit for All cylinders is selected, the operator can limit the maximum fuel index by entering a new value in the toolbar. The ECS will use the new value when Apply is selected.   
+  
+When Chief Index Limit for individual cylinders is selected the operator can limit the maximum fuel index on the selected cylinder by entering a new value in the toolbar followed by [Apply].   
+  
+In order to completely disable the fuel injection on a cylinder unit then the new value should be 0 followed by [Apply].  
+  
+Before taking a cylinder out of operation the restrictions in description 6645-0320 must be taken into consideration.  
+  
+In order to reenable fuel injection on a cylinder unit then the new value should be more than zero; in order to get the same limit on all units then the values should be identical. The ECS will use the new value when Apply is selected.
+
+Copyright \u00a9 2024 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"../en-GB/21735121675.html\">english</a>
+
+* <a href=\"index.html\">Home</a>",
+    "Experience shows that the minimum flushing duration is 24 hours.
+
+After closing the above listed bypass pipes in the supply and return lines the new connected components must be flushed within an additional period of about 6 h.
+
+After completing this flushing process, all temporary modifications on the fuel oil system are to be cancelled. All filter elements including the pre-filter of the feed pump (\"strainer\") must be cleaned according to the manufacturer's instructions and checked for eventual damage, and replaced if necessary.
+
+#### 2.3 Second purging process
+
+The purging process must be carried out in the presence of personnel from MAN Energy Solutions.
+
+The fuel supply and return pipe must be connected to the engine. The entire fuel system including the engine is now purged. In the case of common rail engines, the purging valve must be opened by manual actuation of the compressed air after about 2 hours of purging.
+
+The purging process starts when the plant-side booster pump is actuated. The purging process must be performed until the single or duplex filters are free of contaminants and impurities. To determine the cleanliness of the system as a whole, the single or duplex filter must be cleaned several times during the purging process, depending on the loading.
+
+Experience has shown that the minimum purging duration is 6 hours.
+
+#### 2.4 Draining and Cleaning the System Components
+
+The end preheater, the filter chambers and if applicable the existing mixing tank must be de-sludged through their drain pipes. After 24 hours settling time, the service tank must also have the sludge drained off.
+
+Copyright \u00a9 2023 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"11034362251.html\">english</a>
+
+* <a href=\"index.html\">Home</a>",
+    "\ufeff
+Mounting of the main bearing cap
+
+1. <a href=\"index.html\">9836048</a>
+2. <a href=\"71005245963.html\">L9836048</a>
+3. <a href=\"71005858827.html\">Crankshaft and Main Bearings</a>
+4. <a href=\"71005870475.html\">Work cards</a>
+5. <a href=\"M5100105-01.html\">M5100105-01</a>
+6. Mounting of the main bearing cap
+
+### Mounting of the main bearing cap
+
+1. Raise the bearing cap into position, dismount the guide tubes, coat the bearing studs with molycote pasta or similar and fit the bearing stud nuts.
+
+Make sure that the bearing cap and bearing shell are in their correct position.
+
+1. Dismantle the wire straps.
+2. Mount the hydraulic tools, *see working card 520-01.05*, and tighten the nuts *as prescribed on page 500.40*.
+3. Coat the back side of the bracing screws' (side screws') hexagonal head with a thin coat of silastene or similar.
+4. Mount the screws and tighten with a torque spanner *as indicated on page 500.40*.
+
+Copyright \u00a9 2023 MAN Energy Solutions
+
+<a class=\"schema-navbar-brand\" href=\"index.html\"><img class=\"schema-navbar-logo\" src=\"manual/58548175-ccef-4d6a-987c-f597b7d4d225/assets/img/MAN_pm_pos_rgb_300.png\"/></a>
+
+
+* <a href=\"index.html\">Home</a>
+* Language
+* <a href=\"7547225611.html\">english</a>
+
+* <a href=\"index.html\">Home</a>"
+  ]
+}

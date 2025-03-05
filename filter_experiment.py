@@ -112,9 +112,18 @@ if __name__ == "__main__":
 
     # print_closest_embeddings_sparse(embedding_string, 20)
 
-    tuple = execute_query(query_one_gabagy_by_embedding_sparse, single_item=True)
+    # tuple = execute_query(query_one_gabagy_by_embedding_sparse, single_item=True)
+    # embedding_string = tuple[0]
+
+    # print('*********************************************')
+
+    # print_closest_embeddings_sparse(embedding_string, 300)
+
+    # test gabage
+
+    tuple = execute_query(query_one_gabagy_by_embedding, single_item=True)
     embedding_string = tuple[0]
 
     print('*********************************************')
 
-    print_closest_embeddings_sparse(embedding_string, 139)
+    print_closest_and_furthest_embeddings_cosine(embedding_string, 1000, 30)
