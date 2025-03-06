@@ -1,3 +1,4 @@
 .env
 venv/
-output.jsonl
+try.json
+__pycache__/

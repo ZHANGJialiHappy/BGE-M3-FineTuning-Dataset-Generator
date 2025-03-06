@@ -90,7 +90,7 @@ def get_100_random_embeddings_text_by_cosine(embedding_in_json_string: str,  cle
     random_data = random.sample(first_100_data, random_n)
     random_embeddings_texts = [text for _, _, text, _ in random_data]
 
-    print("generate_first_100_random_embeddings_text_by_cosine")
+    print("get_100_random_embeddings_text_by_cosine")
     for _, _, _, distance in random_data:
         print(distance)
     print('******************************************************')
