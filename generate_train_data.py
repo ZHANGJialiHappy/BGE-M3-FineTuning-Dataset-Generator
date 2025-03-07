@@ -4,7 +4,7 @@ from data_utils import get_clean_data
 from invoke_claude import generate_query
 from generate_negs import get_100_random_embeddings_text_by_cosine
 from queries import query_all_Uuid1_data, query_one_uuid1_garbagy_by_embedding
-from alarm_utils import truncate_id, format_pos, generate_neg_samples, generate_random_neg_samples
+from alarm_utils import truncate_id, format_pos, generate_random_neg_samples
 
 
 def generate_dataset(output_file: str):

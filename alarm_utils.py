@@ -51,21 +51,3 @@ def generate_random_neg_samples(alarms, current_index, random_nr1=8, random_nr2=
     neg1 = [format_pos(alarms[i]) for i in random.sample(range(0, current_index), random_nr1)]
     neg2 = [format_pos(alarms[i]) for i in random.sample(range(current_index+1, len(alarms)), random_nr2)]
     return neg1 + neg2
-
-if __name__ == "__main__":
-
-    # alarm_list=["PVCU1-STermEn1", "PVCU2-STermEn2","PVCU3-STermEn3", "PVCU1-STermEn4", "PVCU2-STermEn56","PVCU3-STermEn7", "PVCU1-STermEn78", "PVCU2-STermEn9","PVCU3-STermEn10", "PVCU1-STermEn11", "PVCU2-ST12"]
-    # alarm_string="EGRCU-SInvParm, EGRI1-SInvParm, EGRI2-SInvParm, EGRI3-SInvParm, SCRCU-SInvParm, SCRI1-SInvParm, SCRI2-SInvParm"
-
-    # print(truncate_id(alarm_list))
-    # print(truncate_id(alarm_string))
-    alarm={
-            "id": "EGRCU-SWDogDact",
-            "synopsis": "Watchdogs deactivated",
-            "data_tree_path": "EGRCU->System->Watchdogs deactivated",
-            "long_description": "EGRCU watchdog disabled.",
-            "cause": "Orange DIP-switch is set to 'Off'.",
-            "effect": "No effect on engine performance. The EGRCU Controller may respond incorrectly to any software and hardware failures.",
-            "suggested_action": "Set orange DIP-switch to 'On'."
-        }
-    print(format_pos(alarm))
