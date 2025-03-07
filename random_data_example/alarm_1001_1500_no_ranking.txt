@@ -1,0 +1,204 @@
+Alarm EICUA-2140-A04
+
+
+
+EICU\* / I/O Configuration / Ch27,2140-A,Speed Set ECR / Suprv. Ch27,2140-A,Speed Set ECR.
+
+Alarm EICUA-2140-A04
+====================
+
+Suprv. Ch27,2140-A,Speed Set ECR.
+
+Description
+-----------
+
+Speed set signal from ECR is out of range.
+
+Cause
+-----
+
+- Cabling failure, or
+- Short circuit, or
+- Signal failure, or
+- EICUA Controller input channel failure.
+
+Effect
+------
+
+If this is the only speed set alarm:
+No effect on engine performance
+
+If this alarm is raised from both EICUA and B:
+- Engine speed cannot be adjusted from ECR
+- EICU uses last valid input value.
+
+Suggested actions
+-----------------
+
+Check:
+- Cabling
+- ECR speed handle
+- EICUA Controller input channel / channel loop current
+
+If the problem persists: Replace EICUA Controller.
+*********************
+Alarm GROUP-PSF-CYL11
+
+
+
+GROUP: Pgas Drop Test Failure - SF Shutdown.
+
+Alarm GROUP-PSF-CYL11
+=====================
+
+GROUP: Pgas Drop Test Failure - SF Shutdown.
+
+Description
+-----------
+
+Measured SF pressure drop in SF block during SF injection is too low.
+
+Cause
+-----
+
+Missing gas injection due to:
+- ELGI valve failure, or
+- SF injection valve failure, or
+- ELWI valve failure
+
+Gas block pressure sensor failure.
+
+Effect
+------
+
+- Dual fuel shutdown
+- Engine operation on fuel oil
+- Second fuel blocked
+
+WARNING!
+Leaking SF injection valve may cause blowback from combustion chamber to SF block, and risk of severe damage to SF components and cylinder cover!
+
+Suggested actions
+-----------------
+
+Check:
+- Cylinder and second fuel pressure curves. Go to: 'Maintenance' -> 'Troubleshooting' -> 'Cyl. Events' or use SCSU scope to analyse logs located in MAD folder.
+- ELGI and Second fuel injection valve
+- ELWI and Window valve.
+*********************
+Alarm SCSU3-6423-10F
+
+
+
+SCSU\* / IO Configuration / DO341,6423-10,Cyl 10: ELWC Valve Op / DO341: Output shutdown.
+
+Alarm SCSU3-6423-10F
+====================
+
+DO341: Output shutdown.
+
+Description
+-----------
+
+Digital output channel overload.
+
+Cause
+-----
+
+Current overload on the digital output channel.
+
+Effect
+------
+
+The digital output channel has been disabled
+- SF Shutdown
+- Not possible to detect a hanging gas injection valve on this cylinder during fuel oil running.
+
+Suggested actions
+-----------------
+
+Check:
+- Cabling and sensor/actuator for short-circuits
+- Repair or replace.
+Power cycle the SCSU3 Controller to re-enable digital output channel.
+*********************
+Alarm CCU1-37A1, CCU2-37A1, CCU3-37A1, CCU4-37A1, CCU5-37A1, CCU6-37A1, CCU7-37A1, CCU8-37A1, CCU9-37A1, CCU10-37A1, CCU11-37A1, CCU12-37A1
+
+
+
+CCU\* / IO Configuration / Gas Channel Relief Valve / Gas Channel Relief Pos. Fail.
+
+Alarm CCU1-37A1, CCU2-37A1, CCU3-37A1, CCU4-37A1, CCU5-37A1, CCU6-37A1, CCU7-37A1, CCU8-37A1, CCU9-37A1, CCU10-37A1, CCU11-37A1, CCU12-37A1
+===========================================================================================================================================
+
+Gas Channel Relief Pos. Fail.
+
+Description
+-----------
+
+SF cylinder block: Gas Channel Relief Valve command and feedback does not match.
+
+Cause
+-----
+
+- Gas Channel Relief Valve failure
+- Gas Channel Relief Valve position sensor is failing
+- Hydraulic leakage might prevent control of Gas Channel Relief Valve.
+
+Effect
+------
+
+During dual fuel Operation:
+- Dual fuel stop
+- Engine operation on fuel oil
+
+During fuel oil operation:
+- Dual fuel operation unavailable.
+
+Suggested actions
+-----------------
+
+- Check position sensor for Gas Channel Relief Valve
+- Check cabling for Gas Channel Relief Valve
+- Check for hydraulic leakage.
+*********************
+Alarm SACU2-303504
+
+
+
+SACU2 / IO Configuration / Ch35,3035,ECS Insulation (kOhm) / Suprv. Ch35,3035,ECS Insulation (kO.
+
+Alarm SACU2-303504
+==================
+
+Suprv. Ch35,3035,ECS Insulation (kO.
+
+Description
+-----------
+
+Sensor signal is out of range.
+
+Cause
+-----
+
+- Failure in the cabling to the sensor, or
+- Sensor failure, or missing sensor power supply, or
+- SACU2 Controller input failure, or
+- For On/Off type sensors the cause can be a missing or wrong supervision resistor (typically 6.8
+kOhm).
+
+Effect
+------
+
+Supervision failure for the insulation detection unit will stop all insulation detection.
+
+Suggested actions
+-----------------
+
+Check:
+- Insulation level by observing the display on the insulation monitor, or
+-Insulation level by observing : Maintenance -> Troubleshooting -> Insulation
+- Insulation level trend in CoCoS-EDS if applicable
+- Individual insulation of ECS components (sensors, controllers, actuators, cabling) to determine the cause of leakage
+- Refer to ECS trouble shooting guide "test for earth failure in ECS system" for further trouble shooting advise.
+*********************

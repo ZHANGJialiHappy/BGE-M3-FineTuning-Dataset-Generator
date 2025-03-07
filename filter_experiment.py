@@ -5,13 +5,13 @@ import random
 import re
 from typing import List
 from sklearn.metrics.pairwise import cosine_similarity
-from queries import get_query_pos_embedding_nth, get_query_pos_embedding_sparse_nth, query_one_gabagy_by_embedding,query_data_by_embedding,query_data_by_embedding_sparse, query_one_gabagy_by_embedding_sparse
+from queries import get_query_pos_embedding_nth, get_query_pos_embedding_sparse_nth, query_one_uuid1_garbagy_by_embedding,query_uuid1_data_by_embedding,query_uuid1_data_by_embedding_sparse, query_one_uuid1_garbagy_by_embedding_sparse
 from generate_negs import execute_query
 from invoke_claude import generate_query, filter_data
 
 
 def print_closest_and_furthest_embeddings_cosine(embedding_string: str,  closest_n:int, furthest_n: int) -> List[str]:
-    data = execute_query(query_data_by_embedding)
+    data = execute_query(query_uuid1_data_by_embedding)
     
     distances = []
     
@@ -48,7 +48,7 @@ def print_closest_and_furthest_embeddings_cosine(embedding_string: str,  closest
     #     print('*********************')
 
 def print_closest_embeddings_sparse(embedding_sparse_string, closest_n):
-    data = execute_query(query_data_by_embedding_sparse)
+    data = execute_query(query_uuid1_data_by_embedding_sparse)
     
     distances = []
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
     # print_closest_embeddings_sparse(embedding_string, 20)
 
-    # tuple = execute_query(query_one_gabagy_by_embedding_sparse, single_item=True)
+    # tuple = execute_query(query_one_uuid1_garbagy_by_embedding_sparse, single_item=True)
     # embedding_string = tuple[0]
 
     # print('*********************************************')
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     # test gabage
 
-    tuple = execute_query(query_one_gabagy_by_embedding, single_item=True)
+    tuple = execute_query(query_one_uuid1_garbagy_by_embedding, single_item=True)
     embedding_string = tuple[0]
 
     print('*********************************************')

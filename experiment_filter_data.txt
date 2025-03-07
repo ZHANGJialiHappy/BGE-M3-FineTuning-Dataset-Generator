@@ -92,5 +92,26 @@ Right answer nr.: 0
 Hard neg nr: 1
 Wrong answer nr. begin: 2
 
-how do i troubleshoot
-what causes this alarm
+
+
+
+in alarm_data
+ERCS_AlarmDescription.en.txt_mk2.json      728      30-680    1             [30, 680)         
+ME_AlarmDescription.en.txt_egen3           7030     30-7000   2 3 4 9       [30, 2000) [2000, 3500)  [3500, 5000) [5000, 7000)
+ME_AlarmDescription.en.txt_mk2             2334     30-2300   5 6           [30, 1500)  [1500, 2300)
+ME-B_AlarmDescription.en.txt_mk2           1536     30-1500   7 8           [30, 700)   [700, 1500)
+PVU-CS-SW_AlarmDescription.en.txt_egen3    900      30-870    10            [30, 870)
+
+
+
+
+1. [alarm_id]
+2. How do I troubleshoot [alarm_id]
+3. What causes this alarm [alarm_id]
+4. What are the effects of the [alarm_id] alarm on the system?
+5. What are the common troubleshooting steps for [alarm_id]?
+6. What are the potential causes of the [alarm_id] alarm?
+7. What are the recommended maintenance procedures for systems with [alarm_id] alarms?
+8. Are there any known issues related to [alarm_id]?
+9. What operational issues can arise due to the [alarm_id] alarm?
+10.What are the suggested actions to resolve the [alarm_id] alarm?

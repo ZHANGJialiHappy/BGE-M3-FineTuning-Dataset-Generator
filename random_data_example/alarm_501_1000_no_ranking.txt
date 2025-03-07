@@ -1,0 +1,188 @@
+Alarm OMCU-SWDogDact
+
+
+
+OMCU / System / Watchdogs deactivated.
+
+Alarm OMCU-SWDogDact
+====================
+
+Watchdogs deactivated.
+
+Description
+-----------
+
+OMCU Controller watchdog disabled.
+
+Cause
+-----
+
+ORANGE DIP-switch is set to 'Off'.
+
+Effect
+------
+
+No effect on engine performance.
+The OMCU Controller may respond incorrectly to any software and hardware failures.
+
+Suggested actions
+-----------------
+
+Set ORANGE DIP-switch to 'On'.
+*********************
+Alarm SCSU1-0211-01A6
+
+
+
+SCSU\* / Cylinder Safety / Cyl 1: Status / Cyl 1: Alarms / Cyl 1: Pgas Channel Curve Fit.
+
+Alarm SCSU1-0211-01A6
+=====================
+
+Cyl 1: Pgas Channel Curve Fit.
+
+Description
+-----------
+
+SF channel pressure measurement indicates unexpected pressure development after window valve has closed.
+
+Cause
+-----
+
+- SF injection valve leaking causing too large SF injection and blow back from combustion chamber, or
+- Window/Resume (if present) valve leaking causing SF flow from accumulator to SF channel, or
+- Blow off valve leaking.
+
+Effect
+------
+
+- Dual fuel shutdown
+- Engine operation on fuel oil
+- Second fuel blocked
+
+WARNING!
+Leaking SF injection valve may cause blowback from combustion chamber to SF block, and risk of severe damage to SF components and cylinder cover!
+
+Suggested actions
+-----------------
+
+RECOMMENDATION if leaking SF injection valve:
+- Cut-out fuel oil injection on this cylinder, or
+- Stop and exchange the damaged valve.
+
+DO NOT start dual fuel operation until this failure is located and repaired.
+
+DO NOT reset second fuel block before failure is located.
+
+Check:
+- Cylinder and second fuel pressure curves. Go to: 'Maintenance' -> 'Troubleshooting' -> 'Cyl. Events' or use SCSU scope to analyse logs located in MAD folder.
+- Window valve
+- Second fuel injection valve
+
+WARNING! (GI engines)
+If second fuel pressure curve is abnormal (injection starts early when WV is activated or pressure drop is higher than normal), do not attempt to restart dual fuel operation, before engine has been stopped and gas block troubleshooting is completed. Go to 'Maintenance' -> 'Troubleshooting' -> 'Gas Block'.
+
+Reference is made to circular letter or instruction manual showing pressure curves from typical failure situation.
+*********************
+Alarm SCSU3-0211-11A8
+
+
+
+SCSU\* / Cylinder Safety / Cyl 11: Status / Cyl 11: Alarms / Cyl 11: ELWI-OK Input Invalidated.
+
+Alarm SCSU3-0211-11A8
+=====================
+
+Cyl 11: ELWI-OK Input Invalidated.
+
+Description
+-----------
+
+ELWI/ELBI OK input invalidated.
+
+Cause
+-----
+
+- Input invalidated on MOP.
+
+Effect
+------
+
+During dual fuel operation:
+- Dual fuel shutdown
+- Engine operation on fuel oil
+
+During fuel oil operation:
+- Dual fuel operation unavailable
+
+During DF Operation Cut-out:
+- No effect on dual fuel operation.
+
+Suggested actions
+-----------------
+
+Validate sensor input on MOP.
+*********************
+Alarm ACU1-MBVerAl, ACU2-MBVerAl, ACU3-MBVerAl
+
+
+
+ACU\* / System / Modbus Interface / Modbus Version / Modbus Interface Vers. Number Alarm.
+
+Alarm ACU1-MBVerAl, ACU2-MBVerAl, ACU3-MBVerAl
+==============================================
+
+Modbus Interface Vers. Number Alarm.
+
+Description
+-----------
+
+Modbus Interface Version does not match.
+
+Cause
+-----
+
+Modbus version on ACU1 Controller does not match Modbus version on other Controller units.
+
+Effect
+------
+
+Modbus Failure.
+
+Suggested actions
+-----------------
+
+Update ACU1 Controller to correct Modbus version.
+*********************
+Alarm ACU1-0722, ACU2-0722, ACU3-0722
+
+
+
+ACU\* / Hydraulic Power Supply / Hyd. leak. timed shutdown [SHD].
+
+Alarm ACU1-0722, ACU2-0722, ACU3-0722
+=====================================
+
+Hyd. leak. timed shutdown [SHD].
+
+Description
+-----------
+
+Oil detected in the drain box.
+
+Cause
+-----
+
+Minor hydraulic leakage from HPS pumps.
+
+Effect
+------
+
+Continuous operation may increase leakage.
+Major leakage may cause shutdown.
+
+Suggested actions
+-----------------
+
+Find and repair hydraulic leak.
+*********************

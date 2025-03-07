@@ -1,0 +1,188 @@
+Alarm GROUP-AR-CCU5
+
+
+
+GROUP: CCU5 not in Normal mode.
+
+Alarm GROUP-AR-CCU5
+===================
+
+GROUP: CCU5 not in Normal mode.
+
+Description
+-----------
+
+CCU5 Controller is not in normal operating mode
+
+This group alarm is raised because both EICU A and EICU B report, that the CCU5 Controller is not running in normal mode (App. not running on .. ). Other alarms in the group are raised as a consequence of this condition. To view all alarms in this group: Press +/- at the bottom of the MOP screen.
+
+Cause
+-----
+
+- CCU5 Controller is restarting after power off/on.
+- CCU5 Controller in test or configuration mode.
+- CCU5 Controller failure.
+
+Effect
+------
+
+CCU5 Controller not ready.
+Redundancy reduced.
+
+Suggested actions
+-----------------
+
+Check CCU5 Controller mode status.
+
+If in test or configuration mode: Restart in normal mode.
+
+If no mode is visible: Wait for CCU5 Controller to finish restart.
+
+If the problem persists: Replace CCU5 Controller.
+*********************
+Alarm SPSU-SAR-CCU10
+
+
+SPSU / System / System Status / App. not running on CCU10.
+
+Alarm SPSU-SAR-CCU10
+====================
+
+App. not running on CCU10.
+
+Description
+-----------
+
+CCU10 Controller is not in normal operating mode.
+
+Cause
+-----
+
+- CCU10 Controller is restarting after power off/on.
+
+- CCU10 Controller in test or configuration mode.
+
+- CCU10 Controller failure.
+
+Effect
+------
+
+CCU10 Controller not ready.
+
+Redundancy reduced.
+
+Suggested actions
+-----------------
+
+Check CCU10 Controller mode status.
+
+
+
+If in test or configuration mode: Restart in normal mode.
+
+
+
+If no mode is visible: Wait for CCU10 Controller to finish restart.
+
+
+
+If the problem persists: Replace CCU10 Controller.
+*********************
+Cause
+-----
+
+The alarm is caused from the ACU1 Controller automatically loads the wrong parameter set after a replacement of the ACU1 Controller.
+
+Effect
+------
+
+The behaviour of the application in the ACU1 Controller is not correct. The precise effect of this situation is unknown and care should be taken.
+
+Suggested actions
+-----------------
+
+If the involved ACU1 Controller just have been replaced, wait for the automatic preparation to complete. If this takes more than 10 minutes, the LED colour signalling for fault indication should be inspected. If this 
+proves unhelpful, reset the ACU1 Controller unit. If it still does not help, contact MAN-ES.
+*********************
+Alarm CWCU-841304
+
+
+
+LDCL / IO Configuration / Ch21,8413,CW engine outlet temp mea / Suprv. Ch21,8413,CW engine outlet t.
+
+Alarm CWCU-841304
+=================
+
+Suprv. Ch21,8413,CW engine outlet t.
+
+Description
+-----------
+
+Sensor signal is out of range.
+
+Cause
+-----
+
+- Cabling failure, or
+- Sensor failure, or
+- Supervision resistor across the switch is missing, or
+- CWCU Controller input channel failure.
+
+Effect
+------
+
+Reduced system performance.
+Reduced supervision.
+
+NOTE
+Never ignore this alarm. Safety critical issues may arise.
+
+Suggested actions
+-----------------
+
+Check:
+- Cabling
+- Sensor
+- Supervision resistor
+- CWCU Controller input channel: 'Maintenance' -> 'System View I/O Test'
+
+If the problem persists: Replace CWCU Controller.
+*********************
+Alarm SPCU-RETS92
+
+
+SPCU / RETS: Return System / SF Return System Not Ready.
+
+Alarm SPCU-RETS92
+=================
+
+SF Return System Not Ready.
+
+Description
+-----------
+
+Second fuel return system not ready to recieve second fuel.
+
+Cause
+-----
+
+- Second fuel return system not ready to recieve
+
+- Wirebreakage of XC6053.
+
+Effect
+------
+
+- Blow off second fuel to: Silencer/ Knock Out Drum.
+
+Suggested actions
+-----------------
+
+Check:
+
+-if return system has set signal low
+
+- why return system is not ready to recieve second fuel
+
+- wirebreakage of second fuel return system ready signal.
+*********************

@@ -15,31 +15,25 @@ def get_query_pos_embedding_sparse_nth(n: int) -> str:
     OFFSET {n - 1}
     LIMIT 1
     """
-query_all_data = """
+query_all_Uuid1_data = """
 SELECT embedding, embedding_sparse, embedding_text
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 """
 
-query_data_by_embedding = """
+query_uuid1_data_by_embedding = """
 SELECT embedding, embedding_text
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 """
 
-query_data_by_embedding_sparse = """
+query_uuid1_data_by_embedding_sparse = """
 SELECT embedding_sparse, embedding_text
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%'
 """
 
-query_alarm_data = """
-SELECT embedding, embedding_text
-FROM v9__chatbot_documents
-WHERE source_uri like '%me_c_mk2%'
-"""
-
-query_one_gabagy_by_embedding = """
+query_one_uuid1_garbagy_by_embedding = """
 SELECT embedding
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%' 
@@ -49,7 +43,7 @@ Copyright © 2023 MAN Energy Solutions%'
 LIMIT 1
 """
 
-query_one_gabagy_by_embedding_sparse = """
+query_one_uuid1_garbagy_by_embedding_sparse = """
 SELECT embedding_sparse
 FROM v9__chatbot_documents
 WHERE source_uri like '%58548175-ccef-4d6a-987c-f597b7d4d225%' 
@@ -57,4 +51,18 @@ AND embedding_text LIKE '%###
 
 Copyright © 2023 MAN Energy Solutions%'
 LIMIT 1
+"""
+
+
+query_all_alarm_data = """
+SELECT embedding, embedding_sparse, embedding_text
+FROM v9__chatbot_documents
+WHERE source_uri like '%me_c_mk2%'
+"""
+
+query_all_non_alarm_data = """
+SELECT embedding, embedding_sparse, embedding_text
+FROM v9__chatbot_documents
+WHERE source_uri like '%me_c_mk2%'
+AND embedding_text NOT LIKE 'Alarm%'
 """

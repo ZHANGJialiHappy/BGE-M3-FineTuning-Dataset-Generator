@@ -1,0 +1,193 @@
+Alarm SPCU-IGVT90
+
+
+SPCU / IGVT: Inert Gas Valve Train / Inert Gas Pressure Too High.
+
+Alarm SPCU-IGVT90
+=================
+
+Inert Gas Pressure Too High.
+
+Description
+-----------
+
+Inert gas pressure too high for assembly test and purge.
+
+Cause
+-----
+
+- Inert gas supply pressure not adjusted correctly or
+
+- PT6321 sensor failure.
+
+Effect
+------
+
+To protect pipes against exessive pressure:
+
+- Dual fuel operation unavailable
+
+- Purge is not preformed when dual fuel operation is stopped
+
+- Manual assembly test and manual purge of second fuel system is unavailable.
+
+Suggested actions
+-----------------
+
+- Adjust inert gas supply pressure
+
+- Check PT6321
+
+- Perform manual purge after duel fuel stop to SF free the system.
+*********************
+Alarm GROUP-PSF-CYL12
+
+
+
+GROUP: Pgas Drop Test Failure - SF Shutdown.
+
+Alarm GROUP-PSF-CYL12
+=====================
+
+GROUP: Pgas Drop Test Failure - SF Shutdown.
+
+Description
+-----------
+
+Measured SF pressure drop in SF block during SF injection is too low.
+
+Cause
+-----
+
+Missing gas injection due to:
+- ELGI valve failure, or
+- SF injection valve failure, or
+- ELWI valve failure
+
+Gas block pressure sensor failure.
+
+Effect
+------
+
+- Dual fuel shutdown
+- Engine operation on fuel oil
+- Second fuel blocked
+
+WARNING!
+Leaking SF injection valve may cause blowback from combustion chamber to SF block, and risk of severe damage to SF components and cylinder cover!
+
+Suggested actions
+-----------------
+
+Check:
+- Cylinder and second fuel pressure curves. Go to: 'Maintenance' -> 'Troubleshooting' -> 'Cyl. Events' or use SCSU scope to analyse logs located in MAD folder.
+- ELGI and Second fuel injection valve
+- ELWI and Window valve.
+*********************
+Alarm GROUP-WHOR-EICU
+
+
+
+GROUP: PMS (WHR): Speed Outside Range.
+
+Alarm GROUP-WHOR-EICU
+=====================
+
+GROUP: PMS (WHR): Speed Outside Range.
+
+Description
+-----------
+
+Actual speed exceeds the acceptable Waste heat recovery (WHR) speed range.
+
+Cause
+-----
+
+Current speed set outside legal range when WHR is engaged.
+
+Effect
+------
+
+WHR is requested to disengage.
+
+Suggested actions
+-----------------
+
+Adjust speed set inside legal WHR speed range.
+*********************
+Alarm SPCU-SFVT0382
+
+
+SPCU / SFVT: Valve Train / SFVT Filter Supervision / SFVT Filter Pressure Diff Stop.
+
+Alarm SPCU-SFVT0382
+===================
+
+SFVT Filter Pressure Diff Stop.
+
+Description
+-----------
+
+Second fuel valve train filter differential pressure above shutdown level.
+
+Cause
+-----
+
+- Filter partially blocked
+
+- Sensor failure.
+
+Effect
+------
+
+- Dual fuel stop
+
+- Engine operation on fuel oil.
+
+Suggested actions
+-----------------
+
+Check filter after dual fuel operation has ended and second fuel valve train is purged.
+*********************
+Alarm GROUP-GCC-CYL6
+
+
+
+GROUP: DF Operation Cut Out.
+
+Alarm GROUP-GCC-CYL6
+====================
+
+GROUP: DF Operation Cut Out.
+
+Description
+-----------
+
+Dual fuel operation is cut out on cylinder.
+
+Cause
+-----
+
+Dual fuel operation cut out is activated on MOP.
+
+Effect
+------
+
+- Engine unable to run dual fuel optimized mode
+
+During dual fuel operation:
+- FO/SF Index Calibration in Limit alarms disabled
+- Exhaust gas temperature deviation expected
+
+WARNING!! Cylinder lubrication amount is not compensated for higher sulfur content of fuel oil on cut out cylinder.
+
+Suggested actions
+-----------------
+
+To re-enable dual fuel operation on cylinder,
+go to 'Chief Limiters' -> 'Cyl. Cut Out'
+
+RECOMMENDATION
+For prolonged operation with dual fuel operation cut out activated, increase lubrication amount on cut out cylinder:
+Go to: 'Auxiliaries' -> 'Cylinder Lubrication' and increase 'Feed Rate Adjust Factor'.
+*********************

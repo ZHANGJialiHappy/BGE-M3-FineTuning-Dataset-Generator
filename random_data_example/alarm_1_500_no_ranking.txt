@@ -1,0 +1,212 @@
+Alarm CCU1-03023240, CCU2-03023240, CCU3-03023240, CCU4-03023240, CCU5-03023240, CCU6-03023240, CCU7-03023240, CCU8-03023240, CCU9-03023240, CCU10-03023240, CCU11-03023240, CCU12-03023240
+
+
+
+CCU\* / Cylinder / Exhaust Valve / Exhaust Valve Supervision / Exh.V. Open Stroke Low [SLD].
+
+Alarm CCU1-03023240, CCU2-03023240, CCU3-03023240, CCU4-03023240, CCU5-03023240, CCU6-03023240, CCU7-03023240, CCU8-03023240, CCU9-03023240, CCU10-03023240, CCU11-03023240, CCU12-03023240
+===========================================================================================================================================================================================
+
+Exh.V. Open Stroke Low [SLD].
+
+Description
+-----------
+
+The exhaust valve opening stroke is too low (Slowdown).
+
+Cause
+-----
+
+- Accumulator pressure too low, or
+- De-aerating orifice in exhaust valve top blocked, or
+- Non-return valves for exhaust valve actuator oil inlet damaged, or
+- No air supply or leaking exhaust valve air spring, or
+- Exhaust valve position sensor failure, or
+- ELVA/FIVA valve failure
+
+Note:
+This alarm also occurs as a consequence of these alarms:
+- Illegal Fuel Plunger Movement
+- Illegal ELFI/FIVA Position
+- ELFI/FIVA Feedback Signal Failure
+- Frozen IO Detected.
+
+Effect
+------
+
+- Fuel injection stopped on affected cylinder.
+- Compression pressure limiter is activated.
+- Slowdown is requested.
+
+Suggested actions
+-----------------
+
+Please refer to 6645-0320 Running with Cylinders or Turbochargers out of operation.
+Check:
+- Exhaust valve position sensor.
+- Accumulator pressure.
+- De-aerating orifice in exhaust valve top.
+- Non-return valves for exhaust valve actuator oil inlet.
+- Air spring supply pressure and perform drop-down test of exhaust valve spindle.
+- ELFI / FIVA valve.
+*********************
+Alarm ECUA-0201XPc31, ECUB-0201XPc31
+
+
+
+ECU\* / Propulsion Unit / Engine / AutoTuning / Tuning Calculation / Pmax Supervision / Cyl 11. Pmax above allowed value.
+
+Alarm ECUA-0201XPc31, ECUB-0201XPc31
+====================================
+
+Cyl 11. Pmax above allowed value.
+
+Description
+-----------
+
+Prise has exceeded Pmax-Pcomp alarm limit.
+
+Cause
+-----
+
+Too low Compression Pressure or too high Maximum Pressure.
+
+Effect
+------
+
+- Increased wear of cylinder liners
+- Risk of breakage of piston rings
+- Too high load on crosshead bearings.
+
+Suggested actions
+-----------------
+
+Immediate Action:
+Reduce "Pmax Offset" on actual cylinder unit to lower Prise below alarm limit.
+Troubleshooting:
+1.Check that current Pcomp "Deviation" for the actual cylinder unit is within tolerances.
+If necessary then carry out adjustments by changing "Pcomp/Pscav Offset" on the actual cylinder unit
+manually or via Auto Tuning (Pcomp Deviation ->Pcomp).
+2.Check that current Pmax "Deviation" for the actual cylinder unit is within tolerances.
+If necessary then carry out adjustments by changing "Pmax Offset" for the actual cylinder unit
+manually or via Auto Tuning (Pmax Deviation ->Pmax).
+If unable to achieve correct Pcomp (in step 2) then please do not use Auto Tuning functionality and
+keep "Pmax Offset" reduced manually on actual cylinder unit below alarm limit.
+*********************
+Alarm SACU2-SOU0483
+
+
+
+SACU2 / SOU: Seal Oil Unit / SOU Pump Control / SOU Seal Oil Filter Clogged.
+
+Alarm SACU2-SOU0483
+===================
+
+SOU Seal Oil Filter Clogged.
+
+Description
+-----------
+
+The pressure drop across the seal oil filter is too high.
+
+Cause
+-----
+
+Particles clog the seal oil filter.
+
+Effect
+------
+
+SF Shutdown.
+
+Suggested actions
+-----------------
+
+Clean or exchange the seal oil filter.
+*********************
+Alarm ACU1-123304, ACU2-123304, ACU3-123304
+
+
+
+ACU\* / I/O Configuration / Ch22,1233,Double Pipe Press. (bar) / Suprv. Ch22,1233,Double Pipe Press.
+
+Alarm ACU1-123304, ACU2-123304, ACU3-123304
+===========================================
+
+Suprv. Ch22,1233,Double Pipe Press.
+
+Description
+-----------
+
+Sensor signal is out of range.
+
+Cause
+-----
+
+- Cabling failure, or
+- Sensor failure, or
+- Supervision resistor across the switch is missing, or
+- ACU1 Controller input channel failure.
+
+Effect
+------
+
+Reduced system performance.
+Reduced supervision.
+
+NOTE
+Never ignore this alarm. Safety critical issues may arise.
+
+Suggested actions
+-----------------
+
+Check:
+- Cabling
+- Sensor
+- Supervision resistor
+- ACU1 Controller input channel: 'Maintenance' -> 'System View I/O Test'
+
+If the problem persists: Replace ACU1 Controller.
+*********************
+Alarm ECUA-GCCO0380, ECUB-GCCO0380
+
+
+
+ECU\* / Propulsion Unit / Engine / Dual Fuel Control / Gas Cylinder Cut Out / Cyl 3: GCCO / Cyl 3: DF Operation Cut Out.
+
+Alarm ECUA-GCCO0380, ECUB-GCCO0380
+==================================
+
+Cyl 3: DF Operation Cut Out.
+
+Description
+-----------
+
+Dual fuel operation is cut out on cylinder.
+
+Cause
+-----
+
+Dual fuel operation cut out is activated on MOP.
+
+Effect
+------
+
+- Engine unable to run dual fuel optimized mode
+
+During dual fuel operation:
+- FO/SF Index Calibration in Limit alarms disabled
+- Exhaust gas temperature deviation expected
+
+WARNING!! Cylinder lubrication amount is not compensated for higher sulfur content of fuel oil on cut out cylinder.
+
+Suggested actions
+-----------------
+
+To re-enable dual fuel operation on cylinder,
+go to 'Chief Limiters' -> 'Cyl. Cut Out'
+
+RECOMMENDATION
+For prolonged operation with dual fuel operation cut out activated, increase lubrication amount on cut out cylinder:
+Go to: 'Auxiliaries' -> 'Cylinder Lubrication' and increase 'Feed Rate Adjust Factor'.
+*********************

@@ -7,7 +7,8 @@ import random
 from dotenv import load_dotenv
 import os
 from sklearn.metrics.pairwise import cosine_similarity
-from queries import query_all_data, query_one_gabagy_by_embedding
+from queries import query_all_Uuid1_data, query_one_uuid1_garbagy_by_embedding, query_all_alarm_data, query_all_non_alarm_data
+
 # from invoke_claude import filter_data
 
 
@@ -51,14 +52,6 @@ def execute_query(query, single_item = False):
         if conn:
             conn.close()
     return response
-
-def fetch_random_data(query, random_n):
-    data = execute_query(query)
-    
-    if not data:
-        return None
-
-    return random.sample(data, random_n)
     
 
 def rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data):
@@ -109,22 +102,38 @@ def _compute_single_lexical_matching_score(lw1: Dict[str, float], lw2: Dict[str,
             scores += weight * lw2[token]
     return scores
 
-def get_clean_data():
+def get_clean_data(query_all_data, query_one_garbagy, garbage_n):
     data = execute_query(query_all_data)
 
-    embedding_in_json_string = execute_query(query_one_gabagy_by_embedding, single_item=True)[0]
+    embedding_in_json_string = execute_query(query_one_garbagy, single_item=True)[0]
 
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data)
 
-    clean_data = ranked_data[2500:]
+    clean_data = ranked_data[garbage_n:]
 
     return clean_data
 
-# if __name__ == "__main__":
-#     clean_data = get_clean_data()
-#     print("******************************************")
+def print_random_data_in_range(query_all_data, from_nr, to_nr, random_n):
+    data = execute_query(query_all_data)[from_nr:to_nr]
+    random_data = random.sample(data, random_n)
+    for _, _, embedding_text in random_data:
+        print(embedding_text)
+        print('*********************')
 
-#     for _, _, embedding_text, distance in clean_data:
-#         print(embedding_text)
-#         print(distance)
-#         print('*********************')
+def print_all_data(query_all_data):
+    data = execute_query(query_all_data)
+    for _, _, embedding_text in data:
+        print(embedding_text)
+        print('*********************')
+
+if __name__ == "__main__":
+
+    # Snooping the data without ranking
+    # print_random_data_in_range(query_all_alarm_data, 2001, 2342, 5)
+
+    # print all data NOT beginning with 'Alarm'
+    print_all_data(query_all_non_alarm_data)
+
+
+
+

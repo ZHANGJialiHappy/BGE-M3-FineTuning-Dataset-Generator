@@ -1,0 +1,303 @@
+Effect
+------
+
+The CCU has switched to tacho set B.
+Redundancy reduced.
+
+If both tacho sensor set A and B fail on the same CCU:
+- No fuel injection (on affected unit)
+- No cylinder lubrication (on affected unit).
+
+Suggested actions
+-----------------
+
+NOTE
+Backup lubrication cables MUST be fitted if both tacho set A and B report failure AND continued operation is needed for more than 30 minutes. Connect affected cylinder lubricator to ECU A or B, Connector J52.
+
+If only one CCU reports failure, check Connector J40-J43 on failing CCU
+If OK: Replace CCU
+
+If all CCUs and ECUs report tacho failure, check tacho signals on maintenance screen:
+1. Turn the engine minimum one revolution (by turning gear)
+2. On failing CCU maintenance screen: Check that channel 40-43 toggle correctly between true and false
+Channel 40 + 41: twice per revolution
+Channel 42 + 43: multiple times per revolution (360)
+
+Perform tacho test on MOP, go to 'Maintenance' -> 'Function Test' -> 'Tacho'
+Follow tacho test instructions
+
+Trace the error by following the signal from :
+Encoder and/or turning wheel marker sensor
+->Amplifier (TSA-A)
+->ECU A
+
+If trigger ring is fitted, check also:
+a. Trigger/marker ring
+b. Trigger/marker sensor.
+*********************
+Effect
+------
+
+The CCU has switched to tacho set A.
+Redundancy reduced.
+
+If both tacho sensor set A and B fail on the same CCU:
+- No fuel injection (on affected unit)
+- No cylinder lubrication (on affected unit).
+
+Suggested actions
+-----------------
+
+NOTE
+Backup lubrication cables MUST be fitted if both tacho set A and B report failure AND continued operation is needed for more than 30 minutes. Connect affected cylinder lubricator to ECU A or B, Connector J52.
+
+If only one CCU reports failure, check Connector J44-J47 on failing CCU
+If OK: Replace CCU
+
+If all CCUs and ECUs report tacho failure, check tacho signals on maintenance screen:
+1. Turn the engine minimum one revolution (by turning gear)
+2. On failing CCU maintenance screen: Check that channel 44-47 toggle correctly between true and false
+Channel 44 + 45: twice per revolution
+Channel 46 + 47: multiple times per revolution (360)
+
+Perform tacho test on MOP, go to 'Maintenance' -> 'Function Test' -> 'Tacho'
+Follow tacho test instructions
+
+Trace the error by following the signal from :
+Encoder
+->Amplifier (TSA-B)
+->ECU B
+
+If trigger ring is fitted, check:
+a. Trigger/marker ring
+b. Trigger/marker sensor.
+*********************
+Suggested actions
+-----------------
+
+Check:
+- Noise pulse counter by observing : Maintenance -> Troubleshooting -> Insulation
+- Cabling, sensors, actuators, Controllers for loose connections or intermittent and/or oscillating electric leakages/short circuits to ground.
+
+To locate an intermittent and/or oscillating electric leakage to ship's ground:
+1.Stop engine or reduce rpm to slow down level
+If the CCU1 Controller is equipped with IRM Module go to step 7
+2. On one controller: Disconnect power supply Connector J1
+3. Observe if increase in noise pulse counter has stopped
+4. If the increase has stopped, the Controller with intermittent and/or oscillating electric leakage to ship's  
+ground has been found skip step 5 and continue to step 6
+5. Reconnect the power supply Connector J1 in order for the controller to resume normal function and go back to 
+
+step 2, choosing the next controller
+6. Reconnect the power supply Connector J1 the controller will resume normal function.
+7. Set the CCU1 Controller in TEST MODE by pressing MPC mode button on MOP Maintenance -> System view
+I/O. This will stop the controllers normal function.
+8. Disconnect connections one at a time (from J2 to J85, - NOT J1), and after each disconnection observe if     
+increase in noise pulse counter has stopped
+9. If increase has stopped, the cable, sensor or actuator with loose connections or intermittent and/or
+oscillating electric leakages/short circuits to ground, has been located
+10.Revert to basic electrical trouble shooting to repair
+11.Set the CCU1 Controller in NORNAL MODE by pressing MPC mode button on MOP Maintenance -> System view I/O     
+
+NOTE:
+If a CCU is disconnected or stopped for more than 20 minutes, establishing of emergency lubrication to the affected cylinder is recommended, by fitting of backup lubrication cables from ECU.
+*********************
+The fuel plunger has made an illegal movement.
+Risk of untimed fuel injection.
+
+Cause
+-----
+
+- Plunger position sensor or cable failure, or
+- ELFI / FIVA valve failure, or
+- CCU failure.
+
+Effect
+------
+
+No fuel injection due to risk of untimed fuel injection.
+
+For FIVA installations:
+- No exhaust valve operation
+- Slowdown is requested.
+
+Suggested actions
+-----------------
+
+Check:
+- Fuel plunger position sensor status (Channel 31)
+- Fuel plunger position sensor and cabling.
+
+If the sensor is replaced, go to: 'Maintenance' -> 'Function Test' to recalibrate the sensor.
+
+Reactivate fuel injection. Go to 'Engine' -> 'Status' -> 'Cylinder Value Status' -> 'HCU Status and Reset' to reset failing unit.
+Do not reactivate fuel injection until the cylinder unit is considered to be OK.
+
+Further troubleshooting:
+1. Stop the engine at first opportunity.
+2. Go to: 'Maintenance' -> 'Troubleshooting' -> 'HCU'
+3. Test failing unit's fuel plunger operation
+
+If the problem persists, replace or exchange, one part at a time:
+- Fuel plunger position sensor
+- Fuel plunger sensor cabling
+- ELFI / FIVA valve
+- CCU
+
+NOTE
+Alarm can be overridden by invalidating channel 31 on affected CCU and reactivating fuel injection on 'Maintenance' -> 'System View I/O Test'.
+*********************
+Cause
+-----
+
+The alarm is caused from the ACU1 Controller automatically loads the wrong parameter set after a replacement of 
+the ACU1 Controller.
+
+Effect
+------
+
+The behaviour of the application in the ACU1 Controller is not correct. The precise effect of this situation is 
+unknown and care should be taken.
+
+Suggested actions
+-----------------
+
+If the involved ACU1 Controller just have been replaced, wait for the automatic preparation to complete. If this takes more than 10 minutes, the LED colour signalling for fault indication should be inspected. If this proves 
+unhelpful, reset the ACU1 Controller unit. If it still does not help, contact MAN-ES.
+*********************
+Effect
+------
+
+-Slow-down is requested.
+If the parameter "Close Pos Changed Fuel Cut Out" is active then:
+
+-Fuel injection stopped on affected cylinder
+
+If the parameter "Close Pos Changed Fuel Cut Out" is passive then:
+
+-Reduced compression pressure.
+-Increased exhaust gas and valve temperature.
+
+Suggested actions
+-----------------
+
+Check:
+- Exhaust valve position sensor
+- Accumulator pressure
+- De-aerating orifice in exhaust valve top
+- Non-return valves for exhaust valve actuator oil inlet
+- Air spring supply pressure and perform drop-down test of exhaust valve spindle.
+- ELFI / FIVA valve
+
+If the parameter "Close Pos Changed Fuel Cut Out" is active then:
+Reactivate fuel injection, go to 'Engine' -> 'Status' -> 'Cylinder Value Status' -> 'HCU Status and Reset' to reset failing
+unit.
+Do not reactivate fuel injection until the cylinder unit is considered to be OK.
+Reactivation only possibly for speed below 'HCU ReEnable Max Speed'.
+*********************
+The fuel plunger has made an illegal movement.
+Risk of untimed fuel injection.
+
+Cause
+-----
+
+- Plunger position sensor or cable failure, or
+- ELFI / FIVA valve failure, or
+- CCU failure.
+
+Effect
+------
+
+No fuel injection due to risk of untimed fuel injection.
+
+For FIVA installations:
+- No exhaust valve operation
+- Slowdown is requested.
+
+Suggested actions
+-----------------
+
+Check:
+- Fuel plunger position sensor status (Channel 31)
+- Fuel plunger position sensor and cabling.
+
+If the sensor is replaced, go to: 'Maintenance' -> 'Function Test' to recalibrate the sensor.
+
+Reactivate fuel injection. Go to 'Engine' -> 'Status' -> 'Cylinder Value Status' -> 'HCU Status and Reset' to reset failing unit.
+Do not reactivate fuel injection until the cylinder unit is considered to be OK.
+
+Further troubleshooting:
+1. Stop the engine at first opportunity.
+2. Go to: 'Maintenance' -> 'Troubleshooting' -> 'HCU'
+3. Test failing unit's fuel plunger operation
+
+If the problem persists, replace or exchange, one part at a time:
+- Fuel plunger position sensor
+- Fuel plunger sensor cabling
+- ELFI / FIVA valve
+- CCU
+
+NOTE
+Alarm can be overridden by invalidating channel 31 on affected CCU and reactivating fuel injection on 'Maintenance' -> 'System View I/O Test'.
+*********************
+Suggested actions
+-----------------
+
+Check:
+- Noise pulse counter by observing : Maintenance -> Troubleshooting -> Insulation
+- Cabling, sensors, actuators, Controllers for loose connections or intermittent and/or oscillating electric leakages/short circuits to ground.
+
+To locate an intermittent and/or oscillating electric leakage to ship's ground:
+1.Stop engine or reduce rpm to slow down level
+If the ACU1 Controller is equipped with IRM Module go to step 7
+2. On one controller: Disconnect power supply Connector J1
+3. Observe if increase in noise pulse counter has stopped
+4. If the increase has stopped, the Controller with intermittent and/or oscillating electric leakage to ship's  
+ground has been found skip step 5 and continue to step 6
+5. Reconnect the power supply Connector J1 in order for the controller to resume normal function and go back to 
+
+step 2, choosing the next controller
+6. Reconnect the power supply Connector J1 the controller will resume normal function.
+7. Set the ACU1 Controller in TEST MODE by pressing MPC mode button on MOP Maintenance -> System view
+I/O. This will stop the controllers normal function.
+8. Disconnect connections one at a time (from J2 to J85, - NOT J1), and after each disconnection observe if     
+increase in noise pulse counter has stopped
+9. If increase has stopped, the cable, sensor or actuator with loose connections or intermittent and/or
+oscillating electric leakages/short circuits to ground, has been located
+10.Revert to basic electrical trouble shooting to repair
+11.Set the ACU1 Controller in NORNAL MODE by pressing MPC mode button on MOP Maintenance -> System view I/O     
+
+NOTE:
+If a CCU is disconnected or stopped for more than 20 minutes, establishing of emergency lubrication to the affected cylinder is recommended, by fitting of backup lubrication cables from ECU.
+1.Stop engine or reduce rpm to slow down level
+If the ACU1 Controller is equipped witriments\test-data-generation>h IRM Module go to step 7
+2. On one controller: Disconnect power supply Connector J1
+3. Observe if increase in noise pulse counter has stopped
+4. If the increase has stopped, the Controller with intermittent and/or oscillating electric leakage to ship's  
+ground has been found skip step 5 and continue to step 6
+5. Reconnect the power supply Connector J1 in order for the controller to resume normal function and go back to 
+
+step 2, choosing the next controller
+6. Reconnect the power supply Connector J1 the controller will resume normal function.
+7. Set the ACU1 Controller in TEST MODE by pressing MPC mode button on MOP Maintenance -> System view
+I/O. This will stop the controllers normal function.
+8. Disconnect connections one at a time (from J2 to J85, - NOT J1), and aftestep 2, choosing the next controller  
+6. Reconnect the power supply Connector J1 the controller will resume normal function.
+7. Set the ACU1 Controller in TEST MODODby pressing MPC mode button on MOP ME by pressing MPC mode button on MOP MO. This will stop the controllers no
+aintenance -> System view
+I/O. This will stop the controllers imno(from J2 to J85, - NOT J1), and aftermal function.                        
+8. Disconnect connections one at a tstimped
+e (from J2 to J85, - NOT J1), and afe,teensor or actuator with loose connectr each disconnection observe if       cillating electric leakages/short ci
+increase in noise pulse counter has   st.Revert to basic electrical trouble opped
+9. If increase has stopped, the cabl Me,E by pressing MPC mode button on MOP sensor or actuator with loose conne  7. Set the ACU1 Controller in TEST MODE by pressing MPC mode button on MOP Maintenance -> System view
+I/O. This will stop the controllers normal function.
+8. Disconnect connections one at a time (from J2 to J85, - NOT J1), and after each disconnection observe if
+increase in noise pulse counter has stopped
+9. If increase has stopped, the cable, sensor or actuator with loose connections or intermittent and/or
+oscillating electric leakages/short circuits to ground, has been located
+10.Revert to basic electrical trouble shooting to repair
+11.Set the ACU1 Controller in NORNAL MODE by pressing MPC mode button on MOP Maintenance -> System view I/O
+
+NOTE:
+If a CCU is disconnected or stopped for more than 20 minutes, establishing of emergency lubrication to the affected cylinder is recommended, by fitting of backup lubrication cables from ECU.
+*********************

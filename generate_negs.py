@@ -2,8 +2,8 @@ import numpy as np
 import json
 import random
 from typing import List
-from queries import get_query_pos_embedding_nth, get_query_pos_embedding_sparse_nth, query_data_by_embedding, query_data_by_embedding_sparse, query_one_gabagy_by_embedding,query_one_gabagy_by_embedding_sparse
-from data_utils import execute_query, fetch_random_data, get_clean_data, rank_embeddings_by_cosine_with_texts, rank_embeddings_by_dot_product_with_texts
+from queries import get_query_pos_embedding_nth, get_query_pos_embedding_sparse_nth, query_uuid1_data_by_embedding, query_uuid1_data_by_embedding_sparse, query_one_uuid1_garbagy_by_embedding,query_one_uuid1_garbagy_by_embedding_sparse
+from data_utils import execute_query, get_clean_data, rank_embeddings_by_cosine_with_texts, rank_embeddings_by_dot_product_with_texts
 import time
 
 def get_random_closest_embeddings_text_by_cosine(embedding_in_json_string: str, clean_data, closest_n: int = 15) -> List[str]:
@@ -23,25 +23,17 @@ def get_random_closest_embeddings_text_by_cosine(embedding_in_json_string: str, 
     return closest_embeddings_texts
 
 def get_hard_neg_embeddings_text_by_cosine(embedding_in_json_string: str,  clean_data, closest_n: int = 15) -> List[str]:
-    # clean_data = get_clean_data()
-    
-    # start_time = time.time()
+
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
     closest_embeddings_texts = [text for _, _, text, _  in ranked_data[10:closest_n+10]]
     print("generate_hard_neg_train_data")
     for _, _, _, distance in ranked_data[10:closest_n+10]:
         print(distance)
     print('******************************************************')
-    
-    # end_time = time.time()
-    # print(f"Time taken: {end_time - start_time} seconds")
 
     return closest_embeddings_texts
 
 def get_random_embeddings_text_by_cosine(embedding_in_json_string: str, clean_data, random_n: int = 15 ) -> List[str]:
-    # clean_data=get_clean_data()
-
-    # start_time = time.time()
     
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
 
@@ -56,16 +48,11 @@ def get_random_embeddings_text_by_cosine(embedding_in_json_string: str, clean_da
         print(distance)
     print('******************************************************')
 
-    # end_time = time.time()
-    # print(f"Time taken: {end_time - start_time} seconds")
-
     return random_embeddings_texts
 
 
 def get_random_closest_embeddings_sparse_text(embedding_sparse_string, clean_data, closest_n=15):
-    # clean_data = get_clean_data()
 
-    # start_time = time.time()
 
     random_200_data=random.sample(clean_data, 200)
     
@@ -77,26 +64,14 @@ def get_random_closest_embeddings_sparse_text(embedding_sparse_string, clean_dat
     for _, _, _, distance in ranked_data[10:closest_n+10]:
         print(distance)
     print('******************************************************')
-    # end_time = time.time()
-    # print(f"Time taken: {end_time - start_time} seconds")
+
     return closest_embeddings_texts
 
 def get_100_random_embeddings_text_by_cosine(embedding_in_json_string: str,  clean_data, random_n: int = 15) -> List[str]:
-    # clean_data = get_clean_data()
-    
-    # start_time = time.time()
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, clean_data)
     first_100_data = ranked_data[10:110]
     random_data = random.sample(first_100_data, random_n)
     random_embeddings_texts = [text for _, _, text, _ in random_data]
-
-    print("get_100_random_embeddings_text_by_cosine")
-    for _, _, _, distance in random_data:
-        print(distance)
-    print('******************************************************')
-    
-    # end_time = time.time()
-    # print(f"Time taken: {end_time - start_time} seconds")
 
     return random_embeddings_texts
 
@@ -144,7 +119,7 @@ def get_100_random_embeddings_text_by_cosine(embedding_in_json_string: str,  cle
 
 
 def get_furthest_embeddings_uclidean(embedding_string, furthest_n=5):
-    random_data=fetch_random_data(query_data_by_embedding, 100)
+    random_data=random.sample(query_uuid1_data_by_embedding, 100)
     
     distances = []
     
