@@ -4,3 +4,5 @@ try.json
 __pycache__/
 dataset_866.jsonl
 dataset.jsonl
+train_dataset
+uuid1_data

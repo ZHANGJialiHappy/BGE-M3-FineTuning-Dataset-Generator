@@ -1,50 +1,27 @@
-import psycopg2
 import numpy as np
+import torch
 import json
-from dotenv import load_dotenv
-import os
 from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd
 
-load_dotenv()
-
-driver = os.getenv("DRIVER")
-host = os.getenv("HOST")
-port = os.getenv("PORT")
-database = os.getenv("DATABASE")
-username = os.getenv("USERNAME")
-password = os.getenv("PASSWORD")
-
-connection_params = {
-    'dbname': database,
-    'user': username,
-    'password': password,
-    'host': host,
-    'port': port,
-}
-
-
-def execute_query(query, single_item = False):
-    response = None
-    try:
-        conn = psycopg2.connect(**connection_params)
-        cursor = conn.cursor()
-        cursor.execute(query)
     
-        if single_item:
-            response = cursor.fetchone()
-        else:
-            response = cursor.fetchall()
+# def rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data):
+#     distances = []
+#     input_embedding = torch.tensor(json.loads(embedding_in_json_string), dtype=torch.float64).reshape(1, -1).cuda()
     
-    except Exception as e:
-        print(f"Error connecting to the PostgreSQL database: {e}")
+#     # Prepare all embeddings in a batch
+#     embeddings = [torch.tensor(json.loads(row[0]), dtype=torch.float64).reshape(1, -1) for row in data]
+#     embeddings_batch = torch.cat(embeddings, dim=0).cuda()
     
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
-    return response
+#     # Calculate cosine similarities in batch
+#     similarities = torch.mm(input_embedding, embeddings_batch.T).cpu().numpy().flatten()
     
+#     # Convert similarities to distances (1 - similarity)
+#     distances = [(data[i][0], data[i][1], data[i][2], 1 - similarities[i]) for i in range(len(data))]
+    
+#     distances.sort(key=lambda x: x[3])
+        
+#     return distances
 
 def rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data):
     distances = []
@@ -65,18 +42,38 @@ def rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data):
         
     return distances
 
+# add new
+def compute_sorted_distance_indices(clean_data):
+    # Extract embeddings from clean_data
+    embeddings = [json.loads(item[0]) for item in clean_data]
+    
+    # Convert embeddings to a PyTorch tensor
+    embeddings_tensor = torch.tensor(embeddings, dtype=torch.float64)
+    
+    # Compute the cosine similarity matrix
+    cosine_similarity_matrix = torch.matmul(embeddings_tensor, embeddings_tensor.T)
+    
+    # Convert the cosine similarity matrix to a distance matrix
+    distance_matrix = 1 - cosine_similarity_matrix
 
-def get_clean_data(query_all_data, query_one_garbagy, garbage_n):
-    data = execute_query(query_all_data)
+    sorted_indices = torch.argsort(distance_matrix)
+    
+    return sorted_indices
 
-    embedding_in_json_string = execute_query(query_one_garbagy, single_item=True)[0]
+def get_clean_data(csv_file_path, embedding_csv_file_path, garbage_n):
+    # data = execute_query(query_all_data)
+    df = pd.read_csv(csv_file_path)
+    data = df.values.tolist()
+
+    # embedding_in_json_string = execute_query(query_one_garbagy, single_item=True)[0]
+    embedding_df = pd.read_csv(embedding_csv_file_path)
+    embedding_in_json_string = embedding_df.iloc[0, 0]
 
     ranked_data = rank_embeddings_by_cosine_with_texts(embedding_in_json_string, data)
 
     clean_data = ranked_data[garbage_n:]
 
     return clean_data
-
 
 
 

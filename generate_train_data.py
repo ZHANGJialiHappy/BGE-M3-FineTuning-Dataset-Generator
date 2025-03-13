@@ -1,20 +1,23 @@
 import json
 import os
-from data_utils import get_clean_data
+from data_utils import get_clean_data, compute_sorted_distance_indices # add new
 from invoke_claude import generate_query
 from generate_negs import get_100_random_embeddings_text_by_cosine
-from queries import query_all_Uuid1_data, query_one_uuid1_garbagy_by_embedding
 from alarm_utils import truncate_id, format_pos, generate_random_neg_samples
+from tqdm import tqdm
 
 
-def generate_dataset(output_file: str):
-    clean_data = get_clean_data(query_all_Uuid1_data, query_one_uuid1_garbagy_by_embedding, 2500)
-    
-    with open(output_file, 'w', encoding='utf-8') as f:
-        for embedding, _, embedding_text, _ in clean_data[:1]:
+uuid1_data='uuid1_data/data-1741610373529.csv'
+uuid1_garbage_embedding='uuid1_data/garbage_embedding.csv'
+clean_data = get_clean_data(uuid1_data, uuid1_garbage_embedding, 2500)
+sorted_indices=compute_sorted_distance_indices(clean_data) # add new
+
+def generate_dataset():
+    with open("dataset.jsonl", 'w', encoding='utf-8') as f:
+        for current_index, (_, _, embedding_text, _) in tqdm(enumerate(clean_data), total=len(clean_data)):
             query = generate_query(embedding_text)
             pos = [embedding_text]
-            neg = get_100_random_embeddings_text_by_cosine(embedding, clean_data, random_n=5)
+            neg = get_100_random_embeddings_text_by_cosine(current_index, clean_data, sorted_indices)
             
             data = {
                 "query": query,
@@ -23,7 +26,6 @@ def generate_dataset(output_file: str):
             }
             
             f.write(json.dumps(data) + '\n')
-
 
         file_path = os.path.join('alarm_data', 'ERCS_AlarmDescription.en.txt_mk2.json')
         with open(file_path, 'r', encoding='utf-8') as alarm_f:
@@ -55,10 +57,10 @@ def generate_dataset(output_file: str):
 
                     elif 2000 <= i < 3500:            
                         query = f"What causes this alarm {truncate_id(alarm['id'])}?" # quetion nr.3
-           
+        
                     elif 3500 <= i < 5000:            
                         query = f"What are the effects of the {truncate_id(alarm['id'])} alarm on the system?" # quetion nr.4
-             
+            
                     else:            
                         query = f"What operational issues can arise due to the {truncate_id(alarm['id'])} alarm?" # quetion nr. 9
                     
@@ -82,7 +84,7 @@ def generate_dataset(output_file: str):
                 if 30 <= i < 2300:
                     if i < 1500:            
                         query = f"What are the common troubleshooting steps for {truncate_id(alarm['id'])}?" # quetion nr.5
-             
+            
                     else:            
                         query = f"What are the potential causes of the {truncate_id(alarm['id'])} alarm?" # quetion nr.6
                     
@@ -106,7 +108,7 @@ def generate_dataset(output_file: str):
                 if 30 <= i < 1500:
                     if i < 700:            
                         query = f"What are the recommended maintenance procedures for systems with {truncate_id(alarm['id'])} alarms?" # quetion nr.7
-              
+            
                     else:            
                         query = f"Are there any known issues related to {truncate_id(alarm['id'])}?" # quetion nr.8
                     
@@ -141,5 +143,5 @@ def generate_dataset(output_file: str):
                     f.write(json.dumps(data) + '\n')
 
 if __name__ == "__main__":
-    generate_dataset("dataset.jsonl")
+    generate_dataset()
         
