@@ -1,0 +1,167 @@
+ml.g5.xlarge
+!pip install torch==2.5.1 torchvision==0.20.1
+!pip install packaging
+!pip install ninja
+
+!pip install torch==2.5.1 torchvision==0.20.1 setuptools==64.0.0 transformers datasets peft
+!pip install deepspeed
+!pip install flash_attn==2.7.3
+
+create environment with Conda 12.1 with gcc (conda-forge gcc 12.4.0-2) 12.4.0
+conda create -n ft_bge_env python=3.10 gcc=12 gxx=12 
+conda init
+source ~/.bashrc
+conda activate ft_bge_env
+pip install FlagEmbedding
+pip install -U FlagEmbedding[finetune]
+pip install deepspeed
+pip install ipykernel
+python -m ipykernel install --user --name=ft_bge_env --display-name="ft_bge_env"
+
+!nvidia-smi
+
+!pip show torch
+!nvcc -V
+
+!torchrun --nproc_per_node 1 \                                   每个节点GPU数量
+	-m FlagEmbedding.finetune.embedder.encoder_only.m3 \        指定要运行的 Python 模块                                             
+	--model_name_or_path BAAI/bge-m3 \
+    --cache_dir ./cache/model \                                 存储从 s3 下载的预训练模型的目录
+    --train_data ./dataset.jsonl \
+    --cache_path ./cache/data \                                 存储缓存数据的目录
+    --train_group_size 8 \                                      AbsDataset（124）模型会一次处理一个jsonl中的8个neg，计算它们的梯度，然后更新模型参数。可以简单得理解为方程得切线。较大的 train_group_size 可以使梯度估计更加稳定，但需要更多的内存。梯度是一个向量，表示损失函数相对于模型参数的导数。梯度指示了损失函数在参数空间中的变化方向和变化率。通过计算梯度，我们可以知道如何调整模型参数以最小化损失函数。
+    --query_max_len 512 \                                       查询的最大输入序列长度，超过此长度的序列将被截断
+    --passage_max_len 512 \                                     返回的最大段落长度
+    --pad_to_multiple_of 8 \                                    将序列填充为提供值的倍数, 确保所有输入序列的长度一致。比如'input_ids': tensor([[ 101, 2023, 2003, 2019, 2742, 5530,  102, 0]]),'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 0]])
+    --knowledge_distillation False \                            AbsArgument. 不用，得有neg和pos的分数，从分数中学习，
+    --same_dataset_within_batch True \                          假设有很多样本，同一批次中，样本来源一致  
+    --small_threshold 0 \                                       合并数据集，我们暂时不需要。因为只有一个数据集
+    --drop_threshold 0 \                                        删除太小的合并后的数据集
+    --output_dir ./test_encoder_only_m3_bge-m3_sd \             指定保存训练输出的目录（比如模型的检查点、日志文件）
+    --overwrite_output_dir \
+    --learning_rate 1e-5 \                                      用于控制模型在每次迭代时更新权重的步长。步长指的是每次更新权重时，权重变化的幅度。较大的步长可能导致训练过程不稳定，而较小的步长可能导致训练过程过慢或陷入局部最优解。
+    --fp16 \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 2 \                           在每个GPU上处理jsonl的数量。较大的批次大小通常会使梯度估计更加稳定，因为它基于更多的数据点进行计算，会使梯度估计更加稳定。然而，过大的批次大小可能会导致训练过程中的更新步长过小，从而减慢收敛速度。
+    --warmup_ratio 0.1 \                                        在训练的初始阶段，学习率从一个较小的值逐渐增加到预设的学习率。这有助于稳定训练过程，防止模型参数在训练初期发生剧烈变化。
+    --gradient_checkpointing \
+    --deepspeed ../examples/finetune/ds_stage0.json \
+    --logging_steps 1 \
+    --save_steps 1000 \
+    --negatives_cross_device \
+    --temperature 0.02 \                                        越低越尖锐，score/temperature, make caculation of similarity not so sharp, default value is 1，处于中间状态
+    --sentence_pooling_method cls \
+    --normalize_embeddings True \
+    --kd_loss_type m3_kd_loss \
+    --unified_finetuning True \                                 3 feature's score will be unified
+    --use_self_distill True \
+    --fix_encoder False \
+    --self_distill_start_step 0
+    --dataloader_drop_last True \
+
+
+!torchrun --nproc_per_node 1 \
+	-m FlagEmbedding.finetune.embedder.encoder_only.m3 \
+	--model_name_or_path BAAI/bge-m3 \
+    --cache_dir ./cache/model \
+    --train_data ./dataset.jsonl \
+    --cache_path ./cache/data \
+    --train_group_size 8 \
+    --query_max_len 512 \
+    --passage_max_len 512 \
+    --pad_to_multiple_of 8 \
+    --knowledge_distillation False \
+    --same_dataset_within_batch True \
+    --small_threshold 0 \
+    --drop_threshold 0 \
+    --output_dir ./test_encoder_only_m3_bge-m3_sd \
+    --overwrite_output_dir \
+    --learning_rate 1e-5 \
+    --fp16 \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 2 \
+    --dataloader_drop_last True \
+    --warmup_ratio 0.1 \
+    --gradient_checkpointing \
+    --deepspeed ./examples/finetune/ds_stage0.json \
+    --logging_steps 1 \
+    --save_steps 1000 \
+    --negatives_cross_device \
+    --temperature 0.02 \
+    --sentence_pooling_method cls \
+    --normalize_embeddings True \
+    --kd_loss_type m3_kd_loss \
+    --unified_finetuning True \
+    --use_self_distill True \
+    --fix_encoder False \
+    --self_distill_start_step 0
+
+
+old!!
+!torchrun --nproc_per_node 1 \
+    -m FlagEmbedding.finetune.embedder.encoder_only.m3 \
+    --model_name_or_path BAAI/bge-m3 \
+    --cache_dir ./cache/model \
+    --train_data ./dataset.jsonl \
+    --cache_path ./cache/data \
+    --knowledge_distillation False \
+    --same_dataset_within_batch True \
+    --small_threshold 0 \
+    --drop_threshold 0 \
+    --output_dir ./test_encoder_only_m3_bge-m3_sd \
+    --overwrite_output_dir \
+    --learning_rate 1e-5 \
+    --fp16 \
+    --num_train_epochs 2 \
+    --per_device_train_batch_size 1 \
+    --dataloader_drop_last True \
+    --warmup_ratio 0.1 \
+    --logging_steps 1 \
+    --save_steps 1000 \
+    --temperature 0.02 \
+    --sentence_pooling_method cls \
+    --normalize_embeddings True \
+    --kd_loss_type m3_kd_loss \
+    --unified_finetuning True \
+    --use_self_distill True \
+    --fix_encoder False \
+    --self_distill_start_step 0
+
+
+model_name_or_path: 模型检查点的路径，用于初始化。在这个例子中是 BAAI/bge-m3。
+config_name: 预训练配置的名称或路径，如果与 model_name 不同。
+tokenizer_name: 预训练分词器的名称或路径，如果与 model_name 不同。
+cache_dir: 存储从 s3 下载的预训练模型的目录。
+trust_remote_code: 是否信任远程代码。
+token: 访问模型时使用的令牌。
+train_data: 训练数据的路径。训练数据中需要包含 query: str、pos: List[str]、neg: List[str]。
+cache_path: 存储缓存数据的目录。
+train_group_size: 训练组的大小。
+query_max_len: 查询的最大输入序列长度，超过此长度的序列将被截断。
+passage_max_len: 段落的最大输入序列长度，超过此长度的序列将被截断。
+pad_to_multiple_of: 将序列填充为提供值的倍数。
+knowledge_distillation: 当训练数据的特征中包含 pos_scores: List[float] 和 neg_scores: List[float] 时，使用知识蒸馏。
+same_dataset_within_batch: 确保同一批次中的所有样本来自同一数据集。
+small_threshold: 小数据集的阈值。相同目录中的小数据集将合并为一个数据集。
+drop_threshold: 丢弃合并小数据集的阈值。如果合并小数据集中的样本数量少于此阈值，则将其丢弃。
+output_dir: 保存输出的目录。
+overwrite_output_dir: 如果输出目录存在，则覆盖它。
+learning_rate: 训练的学习率。
+fp16: 使用 16 位浮点精度。
+num_train_epochs: 训练的轮数。
+per_device_train_batch_size: 每个设备的训练批次大小。
+dataloader_drop_last: 丢弃最后一个不完整的批次。
+warmup_ratio: 预热步骤的比例。
+gradient_checkpointing: 使用梯度检查点以节省内存。
+deepspeed: DeepSpeed 配置文件的路径。
+logging_steps: 日志记录的频率。
+save_steps: 保存模型的频率。
+negatives_cross_device: 在设备之间共享负样本。
+temperature: 用于相似度评分的温度。
+sentence_pooling_method: 句子池化方法。选项：cls、mean、last_token。默认：cls。
+normalize_embeddings: 是否对嵌入进行归一化。
+kd_loss_type: 知识蒸馏的损失类型。选项：kl_div、m3_kd_loss。默认：kl_div。
+unified_finetuning: 使用统一微调。
+use_self_distill: 使用自蒸馏进行统一微调。
+fix_encoder: 冻结编码器的参数。
+self_distill_start_step: 开始自蒸馏的步骤数。
