@@ -64,7 +64,7 @@ python -m ipykernel install --user --name=ft_bge_env --display-name="ft_bge_env"
 	-m FlagEmbedding.finetune.embedder.encoder_only.m3 \
 	--model_name_or_path BAAI/bge-m3 \
     --cache_dir ./cache/model \
-    --train_data ./dataset.jsonl \
+    --train_data ./shuffled_dataset.jsonl \
     --cache_path ./cache/data \
     --train_group_size 8 \
     --query_max_len 512 \
@@ -85,7 +85,7 @@ python -m ipykernel install --user --name=ft_bge_env --display-name="ft_bge_env"
     --gradient_checkpointing \
     --deepspeed ./examples/finetune/ds_stage0.json \
     --logging_steps 1 \
-    --save_steps 1000 \
+    --save_steps 10000 \
     --negatives_cross_device \
     --temperature 0.02 \
     --sentence_pooling_method cls \
