@@ -2,6 +2,8 @@ import boto3
 import json
 from queries import get_query_pos_embedding_nth
 from generate_negs import execute_query
+import csv
+from urllib.parse import unquote
 
 
 def invoke_claude_3_with_text(prompt):
@@ -146,20 +148,45 @@ def filter_data(data):
     
     return invoke_claude_3_with_text(prompt)
 
-if __name__ == "__main__":
-#     guide_book_content = """
-# \ufeffPrepare for descaling\n\n1. <a href="index.html">Default title</a>\n2. <a href="75137745931.html"><p>4208001-1<sub></sub></p></a>\n3. <a href="75139298315.html"><p>Cooling Water System</p></a>\n4. <a href="75139312139.html"><p>Description</p></a>\n5. <a href="5045-0200-0002.html">5045-0200-0002</a>\n6. <a href="7417734539.html"><p>Cleaning and Inhibiting Procedure</p></a>\n7. <a href="7417790347.html"><p>Descaling</p></a>\n8. Prepare for descaling\n\n### Prepare for descaling\n\nFill up with clean tap water.  \nHeat the water to a maximum of 70°C, and circulate it continuously.  \n  \n NOTICE Some ready-mixed cleaning agents are specified to be used at a lower temperature. This 
-# maximum temperature must be adhered to.\n\nCopyright © 2024 MAN Energy Solutions\n\n<a class="schema-navbar-brand" href="index.html"><img class="schema-navbar-logo" src="../assets/img/MAN_pm_pos_rgb_300.png"/></a>\n\n\n* <a href="index.html">Home</a>\n* Language\n* <a href="../en-GB/7417799307.html">english</a>\n\n* <a href="index.html">Home</a>
-#     """
+def generate_query_for_alarm(content):
+    prompt = f"""
+    I will provide you with some content. The first line of the content always starts with "Alarm" followed by an alarm_id. 
+
+    Your task is to generate a question that includes the alarm_id and is directly related to the content provided. 
+    Do not include any additional text or explanations, only return the question.
+
+    Content:
+    {content}
+    """
     
-#     query = generate_query(guide_book_content)
-#     print(query)
+    return invoke_claude_3_with_text(prompt)
 
-    result = execute_query(get_query_pos_embedding_nth(1))
-    embedding_texts = [item[1] for item in result]
-    filtered_data = filter_data(embedding_texts)
-    print(filtered_data)
+if __name__ == "__main__":
+    with open("alarm_id_source.csv", mode='r', encoding='utf-8') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        
+        # 打开目标文件以追加内容
+        with open("alarm_test_dataset.csv", mode='a', encoding='utf-8', newline='') as output_file:
+            fieldnames = ["query", "source_uri"]
+            csv_writer = csv.DictWriter(output_file, fieldnames=fieldnames)
+            
+            # 检查文件是否为空，如果为空则写入表头
+            output_file.seek(0, 2)  # 移动到文件末尾
+            if output_file.tell() == 0:
+                csv_writer.writeheader()
+            
+            # 逐行处理输入文件
+            for row in csv_reader:
+                source_uri = f"['{unquote(row['source_uri']).split('/')[-1]}']"
+                content = row["embedding_text"]
+                query = generate_query_for_alarm(content)
+                
+                # 确保 query 和 source_uri 格式正确
+                query = query.strip().replace("\n", " ").replace('"', "'")
+                source_uri = source_uri.strip().replace("\n", " ")
+                
+                # 写入到目标文件
+                csv_writer.writerow({"query": query, "source_uri": source_uri})
+            
 
 
-
-###

@@ -2,3 +2,5 @@
 venv/
 try.json
 __pycache__/
+train_dataset/
+uuid1_data/
