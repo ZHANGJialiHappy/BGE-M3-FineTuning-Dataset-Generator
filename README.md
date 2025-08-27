@@ -1,4 +1,4 @@
-fine-tune BGE-M3 embedding model
+# fine-tune BGE-M3 embedding model
 ## 📦 Environment Setup
 
 ### 1. Create a virtual environment
